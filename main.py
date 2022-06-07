@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_mysqldb import MySQL, MySQLdb
 import speech_recognition as sr
 import MySQLdb.cursors
@@ -14,7 +14,7 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'geeklogin'
 
 mysql = MySQL(app)
-mysql.init_app(app)
+# mysql.init_app(app)
 
 @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
@@ -75,17 +75,17 @@ def home():
 	
 @app.route('/profile')
 def profile():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     # Check if user is loggedin
     if 'loggedin' in session:
-        cursor.execute('SELECT * FROM accounts WHERE id = %s', [session['id']])
-        account = cursor.fetchone()
+        cur.execute('SELECT * FROM accounts WHERE id = %s', [session['id']])
+        acc = cur.fetchone()
         # Show the profile page with account info
-        return render_template('profile.html', account=account)
+        return render_template('profile.html', account=acc)
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
-@app.route('/coba1')
+@app.route('/coba1', methods=["GET", "POST"])
 def coba1():
     transcript = ""
     if request.method == "POST":
@@ -120,7 +120,7 @@ def dataset():
  
 @app.route("/ajax_add",methods=["POST","GET"])
 def ajax_add():
-    cursor = mysql.connection.cursor()
+    # cursor = mysql.connection.cursor()
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
         txtname = request.form['txtname']
@@ -142,7 +142,7 @@ def ajax_add():
  
 @app.route("/ajax_update",methods=["POST","GET"])
 def ajax_update():
-    cursor = mysql.connection.cursor()
+    # cursor = mysql.connection.cursor()
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
         string = request.form['string']
@@ -158,7 +158,7 @@ def ajax_update():
  
 @app.route("/ajax_delete",methods=["POST","GET"])
 def ajax_delete():
-    cursor = mysql.connection.cursor()
+    # cur = mysql.connection.cursor()
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
         getid = request.form['string']

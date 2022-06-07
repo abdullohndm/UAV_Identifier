@@ -27,8 +27,8 @@
   <div class="input-group">
     <input type="text" class="form-control" placeholder="Isi..." aria-label="Isi..." aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button"  onclick="startDictation('name')">Mulai</button>
-      <button class="btn btn-outline-secondary" type="button" onclick="startDictation('name')">Selesai</button>
+      <button class="btn btn-outline-success" type="button"  onclick="startDictation('name')">Start</button>
+      <button class="btn btn-outline-danger" type="button" onclick="startDictation('name')">Stop</button>
     </div>
   </div>
   <p></p>
@@ -37,8 +37,8 @@
   <div class="input-group">
     <input type="text" class="form-control" placeholder="Isi..." aria-label="Isi..." aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button"  onclick="startDictation('name')">Mulai</button>
-      <button class="btn btn-outline-secondary" type="button" onclick="startDictation('name')">Selesai</button>
+      <button class="btn btn-outline-success" type="button"  onclick="startDictation('name')">Start</button>
+      <button class="btn btn-outline-danger" type="button" onclick="startDictation('name')">Stop</button>
     </div>
   </div>
   <p></p>
@@ -47,8 +47,8 @@
   <div class="input-group">
     <input type="text" class="form-control" placeholder="Isi..." aria-label="Isi..." aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button"  onclick="startDictation('name')">Mulai</button>
-      <button class="btn btn-outline-secondary" type="button" onclick="startDictation('name')">Selesai</button>
+      <button class="btn btn-outline-success" type="button"  onclick="startDictation('name')">Start</button>
+      <button class="btn btn-outline-danger" type="button" onclick="startDictation('name')">Stop</button>
     </div>
   </div>
   <p></p>
@@ -57,8 +57,8 @@
   <div class="input-group">
     <input type="text" class="form-control" placeholder="Isi..." aria-label="Isi..." aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button"  onclick="startDictation('name')">Mulai</button>
-      <button class="btn btn-outline-secondary" type="button" onclick="startDictation('name')">Selesai</button>
+      <button class="btn btn-outline-success" type="button"  onclick="startDictation('name')">Start</button>
+      <button class="btn btn-outline-danger" type="button" onclick="stopDictation">Stop</button>
     </div>
   </div>
 
@@ -67,7 +67,7 @@
   <hr>
   <h6>Apakah anda yakin untuk mengaksesnya?</h6>
   <p></p>
-  <button type="button" class="btn btn-primary btn-block">Akses</button>
+  <button type="button" class="btn btn-primary btn-block">Run</button>
 
 <script>
 function startDictation(x) {
@@ -76,7 +76,7 @@ function startDictation(x) {
     recognition.continuous = false;
     recognition.interimResults = false;
     
-    recognition.lang = "en-Us";
+    recognition.lang = "id-ID";
     recognition.start();
     recognition.onresult = function(e) {
       console.log(e.results[0][0].transcript);
