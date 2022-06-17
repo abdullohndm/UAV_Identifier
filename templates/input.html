@@ -16,15 +16,27 @@
 </head>
 
 <div id="page-wrapper">
-  <h4>Perhatikan cara penting pada berikut untuk mengoperasikan input data!</h4>
+  <h4>Perhatikan Catatan Penting Berikut ini untuk Menginput Data!</h4>
   <hr>
   <h6>1. Berikut Tabel Komando Input Suara</h6>
+  <img src="static/pic/itu.jpg" class="img-center" alt="Responsive image" style="max-width:50%;">
   <h6>2. Contoh Input Suara</h6>
-  <h6>"Posisi sayap BAWAH Kemiringan sayap POSITIF Bentuk sayap DELTA Arah sayap LANCIP KEBELAKANG"</h6>
+  <p>"Posisi sayap BAWAH kemiringan sayap POSITIF bentuk sayap DELTA arah sayap LANCIP KEBELAKANG
+    jenis mesin PISTON jumlah mesin SATU posisi mesin DEPAN bentuk badan TEBAL hidung badan BULAT tengah badan TABUNG
+    posisi ekor DIATAS EKOR jumlah ekor TUNGGAL bentuk ekor OVAL persenjataan BERSENJATA warna POLOS"</h6>
+  <h6>3. Hasil terletak di bagian bawah dan akan muncul setelah menekan tombol Run </p>
   <h6><i>***NB: Kalimat harus sesuai dengan contoh diatas***</i></h6>
   <hr>
 
-  <button class="btn btn-outline-success" type="button" onclick="startDictation('name')">Start</button>
+<!---------------------------------------------------SAYAP PESAWAT-------------------------------------------------->
+
+<h6>Klik tombol Start dibawah ini untuk memulai</h6>
+<p></p>
+  <button class="btn btn-outline-success btn-block" type="button" onclick="startDictation('name')">Start</button>
+  <button class="btn btn-outline-danger btn-block" type="button" onclick="">Stop</button>
+  <br>
+  <hr>
+  <h4>Sayap</h4>
   <br>
   <label for="date">Arah Sayap</label>
   <div class="input-group">
@@ -67,13 +79,148 @@
       <button class="btn btn-outline-danger" type="button" onclick="stopDictation">Stop</button> -->
     </div>
   </div>
-
   <p></p>
-  <i>*Mohon dicek ulang agar tidak ada kesalahan</i>
+
+<!---------------------------------------------------MESIN PESAWAT-------------------------------------------------->
+<hr>
+<h4>Mesin</h4>
+<br>
+  <label for="date">Jenis Mesin</label>
+  <div class="input-group">
+    <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+      aria-describedby="basic-addon2">
+    <div class="input-group-append">
+    </div>
+  </div>
+  <p></p>
+
+  <label for="date">Jumlah Mesin</label>
+  <div class="input-group">
+    <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+      aria-describedby="basic-addon2">
+    <div class="input-group-append">
+    </div>
+  </div>
+  <p></p>
+
+  <label for="date">Posisi Mesin</label>
+  <div class="input-group">
+    <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+      aria-describedby="basic-addon2">
+    <div class="input-group-append">
+    </div>
+  </div>
+  <p></p>
+
+<!---------------------------------------------------BADAN PESAWAT-------------------------------------------------->
+
+<hr>
+<h4>Badan</h4>
+<br>
+  <label for="date">Bentuk Badan</label>
+  <div class="input-group">
+    <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+      aria-describedby="basic-addon2">
+    <div class="input-group-append">
+    </div>
+  </div>
+  <p></p>
+
+  <label for="date">Hidung Badan</label>
+  <div class="input-group">
+    <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+      aria-describedby="basic-addon2">
+    <div class="input-group-append">
+    </div>
+  </div>
+  <p></p>
+
+  <label for="date">Tengah Badan</label>
+  <div class="input-group">
+    <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+      aria-describedby="basic-addon2">
+    <div class="input-group-append">
+    </div>
+  </div>
+  <p></p>
+
+<!---------------------------------------------------EKOR PESAWAT--------------------------------------------------->
+
+<hr>
+<h4>Ekor</h4>
+<br>
+<label for="date">Posisi Ekor</label>
+<div class="input-group">
+  <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+    aria-describedby="basic-addon2">
+  <div class="input-group-append">
+  </div>
+</div>
+  <p></p>
+
+<label for="date">Jumlah Ekor</label>
+<div class="input-group">
+  <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+    aria-describedby="basic-addon2">
+  <div class="input-group-append">
+  </div>
+</div>
+  <p></p>
+
+<label for="date">Bentuk Ekor</label>
+<div class="input-group">
+  <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+    aria-describedby="basic-addon2">
+  <div class="input-group-append">
+  </div>
+</div>
+  <p></p>
+
+<!---------------------------------------------------PERSENJATAAN PESAWAT------------------------------------------->
+
+<hr>
+<h4>Persenjataan</h4>
+<br>
+<label for="date">Persenjataan</label>
+<div class="input-group">
+  <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+    aria-describedby="basic-addon2">
+  <div class="input-group-append">
+  </div>
+</div>
+  <p></p>
+
+<!---------------------------------------------------WARNA PESAWAT-------------------------------------------------->
+<hr>
+<h4>Warna</h4>
+<br>
+<label for="date">Warna</label>
+<div class="input-group">
+  <input type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+    aria-describedby="basic-addon2">
+  <div class="input-group-append">
+  </div>
+</div>
+  <p></p>
+  <hr>
+<!------------------------------------------------------SELESAI----------------------------------------------------->
+
+  <p><i>*Mohon dicek ulang agar tidak ada kesalahan</i></p>
   <hr>
   <h6>Apakah anda yakin untuk mengaksesnya?</h6>
   <p></p>
   <button type="button" class="btn btn-primary btn-block">Run</button>
+  <p></p>
+  <hr>
+  <div class="card text-center">
+    <h6 class="card-header">Hasil</h6>
+    <div class="card-body text-dark">
+      <h5 class="card-text">Nama PTTA :</h5>
+      <h5 class="card-text">Fusi Informasi Bagian :</h5>
+      <h5 class="card-text">Fusi Informasi Keseluruhan :</h5>
+      <h5 class="card-text">Akurasi Naive Bayes :</h5>
+    </div>
+  </div>
 
   <script>
     function startDictation(x) {
