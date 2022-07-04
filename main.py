@@ -3,6 +3,10 @@ from flask_mysqldb import MySQL, MySQLdb
 import speech_recognition as sr
 import MySQLdb.cursors
 import re
+import numpy as np
+import pickle
+
+model = pickle.load(open('halima.pkl', 'rb'))
 
 app = Flask(__name__)
 
@@ -12,6 +16,7 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'geeklogin'
+
 
 mysql = MySQL(app)
 # mysql.init_app(app)
@@ -103,13 +108,16 @@ def coba1():
             transcript = recognizer.recognize_google(data, key=None, language="id-ID")
     return render_template('coba1.html', transcript=transcript)
 
-@app.route('/input')
+@app.route('/input', methods=['POST'])
 def input():
    return render_template('input.html')
 
-@app.route('/testing')
+@app.route('/testing', methods=['POST'])
 def testing():
-   return render_template('testing.html')
+    data1 = request.form['a']
+    arr = np.array([[data1]])
+    pred = model.predict(arr)
+    return render_template('testing.html', data=pred)
 
 @app.route('/dataset',methods = ['POST', 'GET'])
 def dataset():
