@@ -8,7 +8,7 @@ import MySQLdb.cursors
 import re
 import numpy as np
 import pandas as pd
-import pickle
+import os
 
 from sqlalchemy import null
 
@@ -150,6 +150,16 @@ def predict():
                                 "Bentuk Ekor":[data14], 
                                 "Warna":[data15]})
     
+    perintah = pd.read_csv("perintah.csv")
+
+    # for i in range(len(df)):
+    for index in range(len(perintah)):
+        if df["Arah Sayap"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Arah Sayap"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+
     y_test = pd.DataFrame().from_dict({"Persenjataan":[0]})
     # print(df)
     pred = model.predict(df)
@@ -176,59 +186,19 @@ def predict():
 def input():
     return render_template('input.html')
 
-@app.route('/testing', methods=['POST'])
+@app.route('/testing')
 def testing():
-    with open('helium.h5', 'rb') as f:
-        model = joblib.load(f)
+    with open('akurasi.csv', 'rb') as f:
+        konfusi = pd.read_csv(f)
     
-    data1 = request.form['nama_ptta']
-    data2 = request.form['posisi_sayap']
-    data3 = request.form['kemiringan_sayap']
-    data4 = request.form['bentuk_sayap']
-    data5 = request.form['arah_sayap']
-    data6 = request.form['jenis_mesin']
-    data7 = request.form['jumlah_mesin']
-    data8 = request.form['posisi_mesin']
-    data9 = request.form['bentuk_badan']
-    data10 = request.form['hidung_badan']
-    data11 = request.form['tengah_badan']
-    data12 = request.form['posisi_ekor']
-    data13 = request.form['jumlah_ekor']
-    data14 = request.form['bentuk_ekor']
-    data15 = request.form['warna']
-    df = pd.DataFrame().from_dict({
-                                "Nama PTTA":[data1],
-                                "Posisi Sayap": [data2],
-                                "Kemiringan Sayap":[data3],
-                                "Bentuk Sayap":[data4], 
-                                "Arah Sayap":[data5], 
-                                "Jenis Mesin":[data6], 
-                                "Jumlah Mesin":[data7], 
-                                "Posisi Mesin":[data8], 
-                                "Bentuk Badan":[data9], 
-                                "Hidung Badan":[data10], 
-                                "Tengah Badan":[data11], 
-                                "Posisi Ekor":[data12], 
-                                "Jumlah Ekor":[data13], 
-                                "Bentuk Ekor":[data14], 
-                                "Warna":[data15]})
+    accuracy = konfusi['akurasi']
+    precision = konfusi['presisi']
+    recall = konfusi['recall']
+    error_rate = konfusi['error_rate']
 
-    y_test = pd.DataFrame().from_dict({"Persenjataan":[0]})     
-    y_pred = 
+    print(accuracy, precision, recall, error_rate)
 
-    confusion = confusion_matrix(y_test, y_pred)
-
-    TP = confusion[0][0]
-    FP = confusion[0][1]
-    FN = confusion[1][0]
-    TN = confusion[1][1]
-
-    akurasi = (TN + TP) / (TP+FP+FN+TN)
-
-    presisi = TP/(TP+FP)
-
-    recall = TP/(TP+FN)
-    return render_template('testing.html')
+    return render_template('testing.html', akurasi=accuracy, presisi=precision, recall=recall, error_rate=error_rate)
 
 @app.route('/dataset',methods = ['POST', 'GET'])
 def dataset():

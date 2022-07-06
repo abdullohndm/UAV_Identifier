@@ -1,0 +1,61 @@
+ciri,angka
+Posisi Atas,0
+Posisi Tengah,1
+Posisi Bawah,2
+Kemiringan Positif,0
+Kemiringan Negatif,1
+Kemiringan Ujung Sayap,2
+Kemiringan Tidak ada Kemiringan,3
+Bentuk Lurus,0
+Bentuk Kebelakang,1
+Bentuk Delta,2
+Bentuk Semi Delta,3
+Arah Lancip Rata,0
+Arah Lancip Kedepan,1
+Arah Lancip Kebelakang,2
+Arah Lancip tidak Rata,3
+Arah Lancip Dibelakang,4
+Arah Bentuk Berlian,5
+Arah Kebelakang dan Lancip,6
+Jenis Jet,0
+Jenis Baling-baling,1
+Jenis Piston,2
+Jenis Turbo,3
+Jumlah Satu,0
+Jumlah Dua,1
+Jumlah Tiga,2
+Jumlah Empat,3
+Posisi Depan,0
+Posisi Depan dan Belakang,1
+Posisi Belakang,2
+Bentuk Tebal,0
+Bentuk Kotak,1
+Bentuk Bulat,2
+Bentuk Ramping,3
+Hidung Runcing,0
+Hidung Tumpul,1
+Hidung Bulat,2
+Tengah Menonjol,0
+Tengah Tabung,1
+Posisi Dibawah Ekor,0
+Posisi Ditengah Ekor,1
+Posisi Diatas Ekor,2
+Posisi Dibawah Badan,3
+Posisi Ditengah Badan,4
+Posisi Diatas Badan,5
+Posisi Posisi Tidak Ada,6
+Jumlah Tunggal,0
+Jumlah Ganda,1
+Jumlah Tiga,2
+Jumlah Empat,3
+Bentuk Lancip Tidak Rata dan Ujung Bulat,0
+Bentuk Lancip Tidak Rata dan Ujung Tumpul,1
+Bentuk Lancip Tidak Rata dan Ujung Melengkung,2
+Bentuk Lancip Rata dan Ujung Kotak,3
+Bentuk Meruncing Kebelakang dan Ujung Kotak,4
+Bentuk Kebelakang dan Ujung Tumpul,5
+Bentuk Bulat,6
+Bentuk Oval,7
+Bentuk Sirip Tidak Ada,8
+Warna Loreng,0
+Warna Polos,1
