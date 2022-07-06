@@ -55,4 +55,4 @@ tampil = accuracy_score(y_test, y_pred)
 
 classification_report(y_test, y_pred)
 
-pickle.dump(tampil, open('halima.pkl', 'wb'))
+# pickle.dump(tampil, open('halima.pkl', 'wb'))

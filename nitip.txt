@@ -1,0 +1,18 @@
+    # data1 = request.form['nama_ptta']
+    # data2 = request.form['posisi_sayap']
+    # data3 = request.form['kemiringan_sayap']
+    # data4 = request.form['bentuk_sayap']
+    # data5 = request.form['arah_sayap']
+    # data6 = request.form['jenis_mesin']
+    # data7 = request.form['jumlah_mesin']
+    # data8 = request.form['posisi_mesin']
+    # data9 = request.form['bentuk_badan']
+    # data10 = request.form['hidung_badan']
+    # data11 = request.form['tengah_badan']
+    # data12 = request.form['posisi_ekor']
+    # data13 = request.form['jumlah_ekor']
+    # data14 = request.form['bentuk_ekor']
+    # data15 = request.form['persenjataan']
+    # data16 = request.form['warna']
+    # arr = np.array([[data1, data2, data3, data4, data5, data6, data7, data8, data9, data10, data11, data12, data13, data14, data15, data16]])   
+    # pred = model.predict(arr) data=pred

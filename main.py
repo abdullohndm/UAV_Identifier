@@ -1,12 +1,16 @@
+
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_mysqldb import MySQL, MySQLdb
+import joblib
 import speech_recognition as sr
+from sklearn.metrics import confusion_matrix, accuracy_score
 import MySQLdb.cursors
 import re
 import numpy as np
+import pandas as pd
 import pickle
 
-model = pickle.load(open('halima.pkl', 'rb'))
+from sqlalchemy import null
 
 app = Flask(__name__)
 
@@ -15,7 +19,7 @@ app.secret_key = '123'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'geeklogin'
+app.config['MYSQL_DB'] = 'identifikasi'
 
 
 mysql = MySQL(app)
@@ -108,21 +112,78 @@ def coba1():
             transcript = recognizer.recognize_google(data, key=None, language="id-ID")
     return render_template('coba1.html', transcript=transcript)
 
-@app.route('/input', methods=['POST'])
+
+@app.route('/predict', methods=["POST"])
+def predict():
+    with open('helium.h5', 'rb') as f:
+        model = joblib.load(f)
+    
+    data1 = request.form['nama_ptta']
+    data2 = request.form['posisi_sayap']
+    data3 = request.form['kemiringan_sayap']
+    data4 = request.form['bentuk_sayap']
+    data5 = request.form['arah_sayap']
+    data6 = request.form['jenis_mesin']
+    data7 = request.form['jumlah_mesin']
+    data8 = request.form['posisi_mesin']
+    data9 = request.form['bentuk_badan']
+    data10 = request.form['hidung_badan']
+    data11 = request.form['tengah_badan']
+    data12 = request.form['posisi_ekor']
+    data13 = request.form['jumlah_ekor']
+    data14 = request.form['bentuk_ekor']
+    data15 = request.form['warna']
+    df = pd.DataFrame().from_dict({
+                                "Nama PTTA":[data1],
+                                "Posisi Sayap": [data2],
+                                "Kemiringan Sayap":[data3],
+                                "Bentuk Sayap":[data4], 
+                                "Arah Sayap":[data5], 
+                                "Jenis Mesin":[data6], 
+                                "Jumlah Mesin":[data7], 
+                                "Posisi Mesin":[data8], 
+                                "Bentuk Badan":[data9], 
+                                "Hidung Badan":[data10], 
+                                "Tengah Badan":[data11], 
+                                "Posisi Ekor":[data12], 
+                                "Jumlah Ekor":[data13], 
+                                "Bentuk Ekor":[data14], 
+                                "Warna":[data15]})
+    
+    y_test = pd.DataFrame().from_dict({"Persenjataan":[0]})
+    # print(df)
+    pred = model.predict(df)
+    
+    akurasi = accuracy_score(y_test, pred)
+
+    if akurasi == 1:
+        akurasi = 100
+    else:
+        akurasi = 0
+
+    
+    if pred[0] == 1:
+        pred = "Bersenjata"
+    else:
+        pred = "Tidak Bersenjata"
+
+    if data1 is null and data2 is null and data3 is null and data4 is null and data5 is null and data6 is null and  data7 is null and data8 is null and data9 is null and data10 is null and data11 is null and data12 is null and data13 is null and data14 is null and data15 is null:
+        return render_template('input.html',pred=0,akurasi=0)
+    else:
+        return render_template('input.html', pred=pred, akurasi=akurasi)
+
+@app.route('/input')
 def input():
-   return render_template('input.html')
+    return render_template('input.html')
 
 @app.route('/testing', methods=['POST'])
 def testing():
-    data1 = request.form['a']
-    arr = np.array([[data1]])
-    pred = model.predict(arr)
-    return render_template('testing.html', data=pred)
+    return render_template('testing.html')
 
 @app.route('/dataset',methods = ['POST', 'GET'])
 def dataset():
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    result = cur.execute("SELECT * FROM tblemployee ORDER BY id")
+    result = cur.execute("SELECT * FROM hasil ORDER BY nama_pesawat")
     employee = cur.fetchall()
     return render_template('dataset.html', employee=employee)
  
@@ -131,18 +192,21 @@ def ajax_add():
     # cursor = mysql.connection.cursor()
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
-        txtname = request.form['txtname']
-        txtdepartment = request.form['txtdepartment']
-        txtphone = request.form['txtphone']
-        print(txtname)
-        if txtname == '':
-            msg = 'Please Input name'  
-        elif txtdepartment == '':
-           msg = 'Please Input Department'  
-        elif txtphone == '':
-           msg = 'Please Input Phone'  
+        txtnama_pesawat = request.form['txtnama_pesawat']
+        txtpersenjataan = request.form['txtpersenjataan']
+        txtfusi_informasi = request.form['txtfusi_informasi']
+        txtidentifikasi = request.form['txtidentifikasi']
+        print(txtnama_pesawat)
+        if txtnama_pesawat == '':
+            msg = 'Please Input Nama Pesawat'  
+        elif txtpersenjataan == '':
+           msg = 'Please Input Persenjataan'  
+        elif txtfusi_informasi == '':
+           msg = 'Please Input Fusi Informasi' 
+        elif txtidentifikasi == '':
+           msg = 'Please Input Fusi Informasi' 
         else:        
-            cur.execute("INSERT INTO tblemployee (name,department,phone) VALUES (%s,%s,%s)",[txtname,txtdepartment,txtphone])
+            cur.execute("INSERT INTO hasil (nama_pesawat,persenjataan,fusi_informasi,identifikasi) VALUES (%s, %s,%s,%s)",[txtnama_pesawat,txtpersenjataan,txtfusi_informasi,txtidentifikasi])
             mysql.connection.commit()       
             cur.close()
             msg = 'New record created successfully'   
@@ -154,11 +218,12 @@ def ajax_update():
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
         string = request.form['string']
-        txtname = request.form['txtname']
-        txtdepartment = request.form['txtdepartment']
-        txtphone = request.form['txtphone']
+        txtnama_pesawat = request.form['txtnama_pesawat']
+        txtpersenjataan = request.form['txtpersenjataan']
+        txtfusi_informasi = request.form['txtfusi_informasi']
+        txtidentifikasi = request.form['txtidentifikasi']
         print(string)
-        cur.execute("UPDATE tblemployee SET name = %s, department = %s, phone = %s WHERE id = %s ", [txtname, txtdepartment, txtphone, string])
+        cur.execute("UPDATE hasil SET txtnama_pesawat = %s, txtpersenjataan = %s, txtfusi_informasi = %s, txtidentifikasi = %s WHERE nama_pesawat = %s ", [txtnama_pesawat, txtpersenjataan, txtfusi_informasi, txtidentifikasi, string])
         mysql.connection.commit()       
         cur.close()
         msg = 'Record successfully Updated'   
@@ -169,9 +234,9 @@ def ajax_delete():
     # cur = mysql.connection.cursor()
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
-        getid = request.form['string']
-        print(getid)
-        cur.execute('DELETE FROM tblemployee WHERE id = {0}'.format(getid))
+        getnama_pesawat = request.form['string']
+        print(getnama_pesawat)
+        cur.execute('DELETE FROM hasil WHERE nama_pesawat = {0}'.format(getnama_pesawat))
         mysql.connection.commit()       
         cur.close()
         msg = 'Record deleted successfully'   
