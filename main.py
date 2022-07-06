@@ -94,23 +94,23 @@ def profile():
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
-@app.route('/coba1', methods=["GET", "POST"])
-def coba1():
-    transcript = ""
-    if request.method == "POST":
-        print("FORM DATA RECEIVED")
-        if "file" not in request.files:
-            return redirect(request.url)
-        file = request.files["file"]
-        if file.filename == "":
-            return redirect(request.url)
-        if file:
-            recognizer = sr.Recognizer()
-            audioFile = sr.AudioFile(file)
-            with audioFile as source:
-                data = recognizer.record(source)
-            transcript = recognizer.recognize_google(data, key=None, language="id-ID")
-    return render_template('coba1.html', transcript=transcript)
+# @app.route('/coba1', methods=["GET", "POST"])
+# def coba1():
+#     transcript = ""
+#     if request.method == "POST":
+#         print("FORM DATA RECEIVED")
+#         if "file" not in request.files:
+#             return redirect(request.url)
+#         file = request.files["file"]
+#         if file.filename == "":
+#             return redirect(request.url)
+#         if file:
+#             recognizer = sr.Recognizer()
+#             audioFile = sr.AudioFile(file)
+#             with audioFile as source:
+#                 data = recognizer.record(source)
+#             transcript = recognizer.recognize_google(data, key=None, language="id-ID")
+#     return render_template('coba1.html', transcript=transcript)
 
 
 @app.route('/predict', methods=["POST"])
@@ -178,6 +178,56 @@ def input():
 
 @app.route('/testing', methods=['POST'])
 def testing():
+    with open('helium.h5', 'rb') as f:
+        model = joblib.load(f)
+    
+    data1 = request.form['nama_ptta']
+    data2 = request.form['posisi_sayap']
+    data3 = request.form['kemiringan_sayap']
+    data4 = request.form['bentuk_sayap']
+    data5 = request.form['arah_sayap']
+    data6 = request.form['jenis_mesin']
+    data7 = request.form['jumlah_mesin']
+    data8 = request.form['posisi_mesin']
+    data9 = request.form['bentuk_badan']
+    data10 = request.form['hidung_badan']
+    data11 = request.form['tengah_badan']
+    data12 = request.form['posisi_ekor']
+    data13 = request.form['jumlah_ekor']
+    data14 = request.form['bentuk_ekor']
+    data15 = request.form['warna']
+    df = pd.DataFrame().from_dict({
+                                "Nama PTTA":[data1],
+                                "Posisi Sayap": [data2],
+                                "Kemiringan Sayap":[data3],
+                                "Bentuk Sayap":[data4], 
+                                "Arah Sayap":[data5], 
+                                "Jenis Mesin":[data6], 
+                                "Jumlah Mesin":[data7], 
+                                "Posisi Mesin":[data8], 
+                                "Bentuk Badan":[data9], 
+                                "Hidung Badan":[data10], 
+                                "Tengah Badan":[data11], 
+                                "Posisi Ekor":[data12], 
+                                "Jumlah Ekor":[data13], 
+                                "Bentuk Ekor":[data14], 
+                                "Warna":[data15]})
+
+    y_test = pd.DataFrame().from_dict({"Persenjataan":[0]})     
+    y_pred = 
+
+    confusion = confusion_matrix(y_test, y_pred)
+
+    TP = confusion[0][0]
+    FP = confusion[0][1]
+    FN = confusion[1][0]
+    TN = confusion[1][1]
+
+    akurasi = (TN + TP) / (TP+FP+FN+TN)
+
+    presisi = TP/(TP+FP)
+
+    recall = TP/(TP+FN)
     return render_template('testing.html')
 
 @app.route('/dataset',methods = ['POST', 'GET'])
@@ -204,7 +254,7 @@ def ajax_add():
         elif txtfusi_informasi == '':
            msg = 'Please Input Fusi Informasi' 
         elif txtidentifikasi == '':
-           msg = 'Please Input Fusi Informasi' 
+           msg = 'Please Input Identifikasi' 
         else:        
             cur.execute("INSERT INTO hasil (nama_pesawat,persenjataan,fusi_informasi,identifikasi) VALUES (%s, %s,%s,%s)",[txtnama_pesawat,txtpersenjataan,txtfusi_informasi,txtidentifikasi])
             mysql.connection.commit()       
@@ -223,7 +273,7 @@ def ajax_update():
         txtfusi_informasi = request.form['txtfusi_informasi']
         txtidentifikasi = request.form['txtidentifikasi']
         print(string)
-        cur.execute("UPDATE hasil SET txtnama_pesawat = %s, txtpersenjataan = %s, txtfusi_informasi = %s, txtidentifikasi = %s WHERE nama_pesawat = %s ", [txtnama_pesawat, txtpersenjataan, txtfusi_informasi, txtidentifikasi, string])
+        cur.execute("UPDATE hasil SET nama_pesawat = %s, persenjataan = %s, fusi_informasi = %s, identifikasi = %s WHERE id = %s ", [txtnama_pesawat, txtpersenjataan, txtfusi_informasi, txtidentifikasi, string])
         mysql.connection.commit()       
         cur.close()
         msg = 'Record successfully Updated'   
@@ -234,13 +284,14 @@ def ajax_delete():
     # cur = mysql.connection.cursor()
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     if request.method == 'POST':
-        getnama_pesawat = request.form['string']
-        print(getnama_pesawat)
-        cur.execute('DELETE FROM hasil WHERE nama_pesawat = {0}'.format(getnama_pesawat))
+        getid = request.form['string']
+        print(getid)
+        cur.execute('DELETE FROM hasil WHERE id = {0}'.format(getid))
         mysql.connection.commit()       
         cur.close()
         msg = 'Record deleted successfully'   
     return jsonify(msg) 
+
 
 if __name__ == '__main__':
     app.run(debug=True)

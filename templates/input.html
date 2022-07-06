@@ -229,22 +229,15 @@
       <div class="card-body text-dark">
         <h5 class="card-text">Nama PTTA :</h5>
         <h5 class="card-text">Fusi Informasi Keseluruhan :</h5>
+        <!-- <h5 class="card-text">Identifikasi :teridentifikasi/tidak teridentifikasi</h5> -->
+      
         <p id="hasil"></p>
-
         <h5 class="card-text">Prediksi :</h5>
         {% if pred != 0 %}
         <p>{{pred}}</p>
         {% else %}
         <p>0</p>
         {% endif %}
-
-        <!-- <h5 class="card-text">Akurasi Naive Bayes :</h5>
-        {% if akurasi != 0 %}
-        <p>{{akurasi}}%</p>
-        {% else %}
-        <p>0%</p>
-        {% endif %} -->
-
       </div>
     </div>
 

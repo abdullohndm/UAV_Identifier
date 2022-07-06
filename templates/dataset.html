@@ -108,10 +108,10 @@
             $(this).attr("disabled", "disabled");
             var index = $("table tbody tr:last-child").index();
             var row = '<tr>' +
-                '<td><input type="text" class="form-control" name="name" nama_pesawat="txtnama_pesawat"></td>' +
-                '<td><input type="text" class="form-control" name="persenjataan" nama_pesawat="txtpersenjataan"></td>' +
-                '<td><input type="text" class="form-control" name="fusi_informasi" nama_pesawat="txtfusi_informasi"></td>' +
-                '<td><input type="text" class="form-control" name="identifikasi" nama_pesawat="txtidentifikasi"></td>' +
+                '<td><input type="text" class="form-control" name="name" id="txtnama_pesawat"></td>' +
+                '<td><input type="text" class="form-control" name="persenjataan" id="txtpersenjataan"></td>' +
+                '<td><input type="text" class="form-control" name="fusi_informasi" id="txtfusi_informasi"></td>' +
+                '<td><input type="text" class="form-control" name="identifikasi" id="txtidentifikasi"></td>' +
             '<td>' + actions + '</td>' +
             '</tr>';
             $("table").append(row);  
@@ -153,22 +153,22 @@
         $(document).on("click", ".delete", function(){
             $(this).parents("tr").remove();
             $(".add-new").removeAttr("disabled");
-            var nama_pesawat = $(this).attr("nama_pesawat");
-            var string = nama_pesawat;
-            $.post("/ajax_delete", { string: string}, function(data) {
+            var id = $(this).attr("id");
+            var string = id;
+            $.post("/ajax_delete", {string: string}, function(data) {
                 $("#displaymessage").html(data);
                 $("#displaymessage").show();
             });
         });
         // update rec row on edit button click
         $(document).on("click", ".update", function(){
-            var nama_pesawat = $(this).attr("nama_pesawat");
-            var string = nama_pesawat;
+            var id = $(this).attr("id");
+            var string = id;
             var txtnama_pesawat = $("#txtnama_pesawat").val();
             var txtpersenjataan = $("#txtpersenjataan").val();
             var txtfusi_informasi = $("#txtfusi_informasi").val();
             var txtidentifikasi = $("#txtidentifikasi").val();
-            $.post("/ajax_update", { string: string,txtnama_pesawat: txtnama_pesawat, txtpersenjataan: txtpersenjataan, txtfusi_informasi: txtfusi_informasi, txtidentifikasi: txtidentifikasi }, function(data) {
+            $.post("/ajax_update", { string: string, txtnama_pesawat: txtnama_pesawat, txtpersenjataan: txtpersenjataan, txtfusi_informasi: txtfusi_informasi, txtidentifikasi: txtidentifikasi }, function(data) {
                 $("#displaymessage").html(data);
                 $("#displaymessage").show();
             });
@@ -179,15 +179,15 @@
         $(document).on("click", ".edit", function(){  
             $(this).parents("tr").find("td:not(:last-child)").each(function(i){
                 if (i=='0'){
-                    var nama_pesawatnama = 'txtnama_pesawat';
+                    var idnama_pesawat = 'txtnama_pesawat';
                 }else if (i=='1'){
-                    var nama_pesawatname = 'txtpersenjataan';
+                    var idnama_pesawat = 'txtpersenjataan';
                 }else if (i=='2'){
-                    var nama_pesawatname = 'txtfusi_informasi';
+                    var idnama_pesawat = 'txtfusi_informasi';
                 }else if (i=='3'){
-                    var nama_pesawatname = 'txtidentifikasi';
+                    var idnama_pesawat = 'txtidentifikasi';
                 }else{} 
-                $(this).html('<input type="text" name="updaterec" nama_pesawat="' + nama_pesawatname + '" class="form-control" value="' + $(this).text() + '">');
+                $(this).html('<input type="text" name="updaterec" id="' + idnama_pesawat + '" class="form-control" value="' + $(this).text() + '">');
             });  
             $(this).parents("tr").find(".add, .edit").toggle();
             $(".add-new").attr("disabled", "disabled");
@@ -227,9 +227,9 @@
                             <td>{{row.fusi_informasi}}</td>
                             <td>{{row.identifikasi}}</td>
                             <td>
-                                <a class="add" title="Add" data-toggle="tooltip" nama_pesawat="{{row.nama_pesawat}}"><i class="fa fa-user-plus"></i></a>
-                                <a class="edit" title="Edit" data-toggle="tooltip" nama_pesawat="{{row.nama_pesawat}}"><i class="fa fa-pencil"></i></a>
-                                <a class="delete" title="Delete" data-toggle="tooltip" nama_pesawat="{{row.nama_pesawat}}"><i class="fa fa-trash-o"></i></a>
+                                <a class="add" title="Add" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-user-plus"></i></a>
+                                <a class="edit" title="Edit" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-pencil"></i></a>
+                                <a class="delete" title="Delete" data-toggle="tooltip" id="{{row.id}}"><i class="fa fa-trash-o"></i></a>
                             </td>
                         </tr>   
                         {% endfor %}    
