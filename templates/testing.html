@@ -19,7 +19,7 @@
         <h5 class="card-header">Akurasi</h5>
         <div class="card-body">
           <h5 class="card-title">Akurasi Sebesar :</h5>
-          <p class="card-text", value="testing", methods="POST", id="hasil"></p>
+          <p class="card-text">{{accuracy}}</p>
         </div>
         <div></div>
     </div>
@@ -28,16 +28,25 @@
         <h5 class="card-header">Presisi</h5>
         <div class="card-body">
           <h5 class="card-title">Presisi Sebesar :</h5>
-          <p class="card-text">Sekian %</p>
+          <p class="card-text">{{precision}}</p>
         </div>
         <div></div>
     </div>
     <br></br>
     <div class="card text-center">
-        <h5 class="card-header">F-1 Score</h5>
+        <h5 class="card-header">Recall</h5>
         <div class="card-body">
-          <h5 class="card-title">F-1 Score Sebesar :</h5>
-          <p class="card-text">Sekian %</p>
+          <h5 class="card-title">Recall Sebesar :</h5>
+          <p class="card-text">{{recall}}</p>
+        </div>
+        <div></div>
+    </div>
+    <br></br>
+    <div class="card text-center">
+        <h5 class="card-header">Error</h5>
+        <div class="card-body">
+          <h5 class="card-title">Error Rate Sebesar :</h5>
+          <p class="card-text">{{error_rate}}</p>
         </div>
         <div></div>
     </div>

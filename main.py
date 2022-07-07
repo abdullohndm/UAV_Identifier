@@ -152,13 +152,96 @@ def predict():
     
     perintah = pd.read_csv("perintah.csv")
 
+# ------------------------------------------------------------------------
+
     # for i in range(len(df)):
     for index in range(len(perintah)):
+        if df["Posisi Sayap"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Posisi Sayap"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+
+        if df["Kemiringan Sayap"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Kemiringan Sayap"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+        
+        if df["Bentuk Sayap"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Bentuk Sayap"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+
         if df["Arah Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Arah Sayap"][0] = perintah.loc[index,"angka"]
         # else:
             # Error handling if input not match
+
+# ------------------------------------------------------------------------
+
+        if df["Jenis Mesin"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Jenis Mesin"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+
+        if df["Jumlah Mesin"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Jumlah Mesin"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+        
+        if df["Posisi Mesin"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Posisi Mesin"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+
+# ------------------------------------------------------------------------
+
+        if df["Bentuk Badan"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Bentuk Badan"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+        if df["Hidung Badan"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Hidung Badan"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+        if df["Tengah Badan"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Tengah Badan"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+
+# ------------------------------------------------------------------------
+
+        if df["Posisi Ekor"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Posisi Ekor"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+        if df["Jumlah Ekor"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Jumlah Ekor"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+        if df["Bentuk Ekor"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Bentuk Ekor"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+        if df["Warna"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Warna"][0] = perintah.loc[index,"angka"]
+        # else:
+            # Error handling if input not match
+
+# ------------------------------------------------------------------------
 
     y_test = pd.DataFrame().from_dict({"Persenjataan":[0]})
     # print(df)
@@ -198,7 +281,7 @@ def testing():
 
     print(accuracy, precision, recall, error_rate)
 
-    return render_template('testing.html', akurasi=accuracy, presisi=precision, recall=recall, error_rate=error_rate)
+    return render_template('testing.html', accuracy=accuracy, precision=precision, recall=recall, error_rate=error_rate)
 
 @app.route('/dataset',methods = ['POST', 'GET'])
 def dataset():
