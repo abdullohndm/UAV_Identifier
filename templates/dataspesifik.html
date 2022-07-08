@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block title %}Pengenalan PTTA{% endblock %}
+
+{% block content %}
+<h2>Halaman Dataset</h2>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />    
+    <link href='https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <body >
+        <div class="container" >
+            <div class="row" style="padding:50px;">
+                <p><h1>Data Spesifik PTTA yang Sudah Tercatat</h1></p>
+                <div >
+                    <table id='empTable' class='display dataTable' width='100%'>
+                        <thead>
+                        <tr>
+                            <th>Nama PTTA</th>
+                            <th>Posisi Sayap</th>
+                            <th>Kemiringan Sayap</th>
+                            <th>Bentuk Sayap</th>
+                            <th>Jenis Mesin</th>
+                            <th>Jumlah Mesin</th>
+                            <th>Posisi Mesin</th>
+                            <th>Bentuk Badan</th>
+                            <th>Hidung Badan</th>
+                            <th>Tengah Badan</th>
+                            <th>Posisi Ekor</th>
+                            <th>Jumlah Ekor</th>
+                            <th>Bentuk Ekor</th>
+                            <th>Persenjataan</th>
+                            <th>Warna</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+           </div>
+        </div>
+        <script>
+        $(document).ready(function() {
+            var empDataTable = $('#empTable').DataTable({
+                'processing': true,
+                'serverSide': true,
+                'serverMethod': 'post',
+                'ajax': {'url':'/ajaxfile'},
+                        'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                        searching: true,
+                        sort: false,
+                        "serverSide": true,
+                        'columns': [
+                            { data: 'nama_ptta'},
+                            { data: 'posisi_sayap'},
+                            { data: 'kemiringan_sayap'},
+                            { data: 'bentuk_sayap'},
+                            { data: 'arah_sayap'},
+                            { data: 'jenis_mesin'},
+                            { data: 'jumlah_mesin'},
+                            { data: 'posisi_mesin'},
+                            { data: 'bentuk_badan'},
+                            { data: 'hidung_badan'},
+                            { data: 'tengah_badan'},
+                            { data: 'posisi_ekor'},
+                            { data: 'jumlah_ekor'},
+                            { data: 'bentuk_ekor'},
+                            { data: 'persenjataan'},
+                            { data: 'warna'},
+                        ]
+            });
+        });
+        </script>
+    </body>
+{% endblock %}
+</html> 

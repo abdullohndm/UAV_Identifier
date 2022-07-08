@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, json
 from flask_mysqldb import MySQL, MySQLdb
 import joblib
 import speech_recognition as sr
@@ -22,8 +22,8 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'identifikasi'
 
 
-mysql = MySQL(app)
-# mysql.init_app(app)
+mysql = MySQL()
+mysql.init_app(app)
 
 @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
@@ -58,7 +58,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         email = request.form['email']
-    elif request.method == 'POST':
+    
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM accounts WHERE username = %s', (username,))
         account = cursor.fetchone()
@@ -74,6 +74,8 @@ def register():
             cursor.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s)', (username, password, email,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
+    elif request.method == 'POST':
+        msg = 'Please fill out the form!'
     return render_template('register.html', msg=msg)
 
 @app.route('/home')
@@ -115,7 +117,7 @@ def profile():
 
 @app.route('/predict', methods=["POST"])
 def predict():
-    with open('helium.h5', 'rb') as f:
+    with open('8per20.h5', 'rb') as f:
         model = joblib.load(f)
     
     data1 = request.form['nama_ptta']
@@ -282,6 +284,80 @@ def testing():
     print(accuracy, precision, recall, error_rate)
 
     return render_template('testing.html', accuracy=accuracy, precision=precision, recall=recall, error_rate=error_rate)
+
+@app.route('/ajaxfile',methods = ['POST', 'GET'])
+def ajaxfile():
+    try:
+        # conn = mysql.connect()
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        if request.method == 'POST':
+            draw = request.form['draw'] 
+            row = int(request.form['start'])
+            rowperpage = int(request.form['length'])
+            searchValue = request.form["search[value]"]
+            print(draw)
+            print(row)
+            print(rowperpage)
+            print(searchValue)
+ 
+            ## Total number of records without filtering
+            cursor.execute("select count(*) as allcount from data")
+            rsallcount = cursor.fetchone()
+            totalRecords = rsallcount['allcount']
+            print(totalRecords) 
+ 
+            ## Total number of records with filtering
+            likeString = "%" + searchValue +"%"
+            cursor.execute("SELECT count(*) as allcount from data WHERE nama_ptta LIKE %s", (likeString, likeString, likeString))
+            rsallcount = cursor.fetchone()
+            totalRecordwithFilter = rsallcount['allcount']
+            print(totalRecordwithFilter) 
+ 
+            ## Fetch records
+            if searchValue=='':
+                cursor.execute("SELECT * FROM data ORDER BY nama_ptta asc limit %s, %s;", (row, rowperpage))
+                datalist = cursor.fetchall()
+            else:        
+                cursor.execute("SELECT * FROM data WHERE nama_ptta LIKE %s OR persenjataan LIKE %s limit %s, %s;", (likeString, likeString, likeString, row, rowperpage))
+                datalist = cursor.fetchall()
+ 
+            data = []
+            for row in datalist:
+                data.append({
+                    'nama_ptta': row['nama_ptta'],
+                    'posisi_sayap': row['posisi_sayap'],
+                    'kemiringan_sayap': row['kemiringan_sayap'],
+                    'bentuk_sayap': row['bentuk_sayap'],
+                    'arah_sayap': row['arah_sayap'],
+                    'jenis_mesin': row['jenis_mesin'],
+                    'jumlah_mesin': row['jumlah_mesin'],
+                    'posisi_mesin': row['posisi_mesin'],
+                    'bentuk_badan': row['bentuk_badan'],
+                    'hidung_badan': row['hidung_badan'],
+                    'tengah_badan': row['tengah_badan'],
+                    'posisi_ekor': row['posisi_ekor'],
+                    'jumlah_ekor': row['jumlah_ekor'],
+                    'bentuk_ekor': row['bentuk_ekor'],
+                    'persenjataan': row['persenjataan'],
+                    'warna': row['warna'],
+                })
+ 
+            response = {
+                'draw': draw,
+                'iTotalRecords': totalRecords,
+                'iTotalDisplayRecords': totalRecordwithFilter,
+                'aaData': data,
+            }
+            return jsonify(response)
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close() 
+        # conn.close()
+
+@app.route('/dataspesifik')
+def dataspesifik():
+    return render_template('dataspesifik.html')
 
 @app.route('/dataset',methods = ['POST', 'GET'])
 def dataset():
