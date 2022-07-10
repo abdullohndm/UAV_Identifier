@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>{% block title %}Pengenalan PTTA{% endblock %}</title>
+	<link rel = "icon" type = "image/png" href = "{{ url_for('static', filename='logo-title.png') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 </head>
@@ -17,7 +18,7 @@
 			<a href="{{ url_for('testing') }}"><i class="fas fa-cogs"></i>Testing</a>
 			<a href="{{ url_for('dataset') }}"><i class="fas fa-database"></i>Dataset</a>
 			<a href="{{ url_for('dataspesifik') }}"><i class="fas fa-stream"></i>Data Spesifik</a>
-			<a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profil</a>
+			<a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i>Profile</a>
 		</div>
 	</nav>
 	<div class="content">

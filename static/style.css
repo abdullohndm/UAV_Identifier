@@ -22,6 +22,21 @@ body {
     padding: 20px 0 20px 0;
     border-bottom: 1px solid #dee0e4;
 }
+
+.login h4, .register h4 {
+    text-align: center;
+    color: #5b6574;
+    font-size: 9px;
+    padding-bottom: 16px;
+}
+
+.register h4 {
+    text-align: center;
+    color: #5b6574;
+    font-size: 16px;
+    padding-bottom: 16px;
+}
+
 .login .links, .register .links {
     display: flex;
     padding: 0 15px;

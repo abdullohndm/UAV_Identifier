@@ -21,7 +21,6 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'identifikasi'
 
-
 mysql = MySQL()
 mysql.init_app(app)
 
@@ -161,87 +160,87 @@ def predict():
         if df["Posisi Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Posisi Sayap"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
 
         if df["Kemiringan Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Kemiringan Sayap"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
         
         if df["Bentuk Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Bentuk Sayap"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
 
         if df["Arah Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Arah Sayap"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
 
 # ------------------------------------------------------------------------
 
         if df["Jenis Mesin"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Jenis Mesin"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
 
         if df["Jumlah Mesin"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Jumlah Mesin"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
         
         if df["Posisi Mesin"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Posisi Mesin"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
 
 # ------------------------------------------------------------------------
 
         if df["Bentuk Badan"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Bentuk Badan"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
         if df["Hidung Badan"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Hidung Badan"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
         if df["Tengah Badan"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Tengah Badan"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
 
 # ------------------------------------------------------------------------
 
         if df["Posisi Ekor"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Posisi Ekor"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
         if df["Jumlah Ekor"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Jumlah Ekor"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
         if df["Bentuk Ekor"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Bentuk Ekor"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
         if df["Warna"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Warna"][0] = perintah.loc[index,"angka"]
-        # else:
-            # Error handling if input not match
+        else:
+            msg = 'Input Salah!'
 
 # ------------------------------------------------------------------------
 
@@ -265,7 +264,7 @@ def predict():
     if data1 is null and data2 is null and data3 is null and data4 is null and data5 is null and data6 is null and  data7 is null and data8 is null and data9 is null and data10 is null and data11 is null and data12 is null and data13 is null and data14 is null and data15 is null:
         return render_template('input.html',pred=0,akurasi=0)
     else:
-        return render_template('input.html', pred=pred, akurasi=akurasi)
+        return render_template('input.html', pred=pred, akurasi=akurasi, msg=msg)
 
 @app.route('/input')
 def input():
@@ -285,79 +284,29 @@ def testing():
 
     return render_template('testing.html', accuracy=accuracy, precision=precision, recall=recall, error_rate=error_rate)
 
-@app.route('/ajaxfile',methods = ['POST', 'GET'])
-def ajaxfile():
-    try:
-        # conn = mysql.connect()
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        if request.method == 'POST':
-            draw = request.form['draw'] 
-            row = int(request.form['start'])
-            rowperpage = int(request.form['length'])
-            searchValue = request.form["search[value]"]
-            print(draw)
-            print(row)
-            print(rowperpage)
-            print(searchValue)
- 
-            ## Total number of records without filtering
-            cursor.execute("select count(*) as allcount from data")
-            rsallcount = cursor.fetchone()
-            totalRecords = rsallcount['allcount']
-            print(totalRecords) 
- 
-            ## Total number of records with filtering
-            likeString = "%" + searchValue +"%"
-            cursor.execute("SELECT count(*) as allcount from data WHERE nama_ptta LIKE %s", (likeString, likeString, likeString))
-            rsallcount = cursor.fetchone()
-            totalRecordwithFilter = rsallcount['allcount']
-            print(totalRecordwithFilter) 
- 
-            ## Fetch records
-            if searchValue=='':
-                cursor.execute("SELECT * FROM data ORDER BY nama_ptta asc limit %s, %s;", (row, rowperpage))
-                datalist = cursor.fetchall()
-            else:        
-                cursor.execute("SELECT * FROM data WHERE nama_ptta LIKE %s OR persenjataan LIKE %s limit %s, %s;", (likeString, likeString, likeString, row, rowperpage))
-                datalist = cursor.fetchall()
- 
-            data = []
-            for row in datalist:
-                data.append({
-                    'nama_ptta': row['nama_ptta'],
-                    'posisi_sayap': row['posisi_sayap'],
-                    'kemiringan_sayap': row['kemiringan_sayap'],
-                    'bentuk_sayap': row['bentuk_sayap'],
-                    'arah_sayap': row['arah_sayap'],
-                    'jenis_mesin': row['jenis_mesin'],
-                    'jumlah_mesin': row['jumlah_mesin'],
-                    'posisi_mesin': row['posisi_mesin'],
-                    'bentuk_badan': row['bentuk_badan'],
-                    'hidung_badan': row['hidung_badan'],
-                    'tengah_badan': row['tengah_badan'],
-                    'posisi_ekor': row['posisi_ekor'],
-                    'jumlah_ekor': row['jumlah_ekor'],
-                    'bentuk_ekor': row['bentuk_ekor'],
-                    'persenjataan': row['persenjataan'],
-                    'warna': row['warna'],
-                })
- 
-            response = {
-                'draw': draw,
-                'iTotalRecords': totalRecords,
-                'iTotalDisplayRecords': totalRecordwithFilter,
-                'aaData': data,
-            }
-            return jsonify(response)
-    except Exception as e:
-        print(e)
-    finally:
-        cursor.close() 
-        # conn.close()
+@app.route("/fetchrecords",methods=["POST","GET"])
+def fetchrecords():
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    if request.method == 'POST':
+        query = request.form['query']
+        #print(query)
+        if query == '':
+            cur.execute("SELECT * FROM data ORDER BY id_data ASC")
+            datalist = cur.fetchall()
+            print('all list')
+        else:
+            search_text = request.form['query']
+            print(search_text)
+            cur.execute("SELECT * FROM data WHERE nama_ptta IN (%s) ORDER BY id_data ASC", [search_text])
+            datalist = cur.fetchall()  
+    return jsonify({'htmlresponse': render_template('response.html', datalist=datalist)})
 
 @app.route('/dataspesifik')
 def dataspesifik():
-    return render_template('dataspesifik.html')
+    cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cur.execute("SELECT DISTINCT nama_ptta FROM data ORDER BY nama_ptta ASC")
+    bish = cur.fetchall()  
+    return render_template('dataspesifik.html', bish = bish)
 
 @app.route('/dataset',methods = ['POST', 'GET'])
 def dataset():
