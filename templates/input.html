@@ -173,20 +173,6 @@
     </div>
     <p></p>
 
-    <!---------------------------------------------------PERSENJATAAN PESAWAT------------------------------------------->
-
-    <!-- <hr>
-    <h4>Persenjataan</h4>
-    <br>
-    <label for="date">Persenjataan</label>
-    <div class="input-group">
-      <input name="persenjataan" type="number" class="form-control" id="" placeholder="Isi..." aria-label="Isi..."
-        aria-describedby="basic-addon2">
-      <div class="input-group-append">
-      </div>
-    </div>
-    <p></p> -->
-
     <!---------------------------------------------------WARNA PESAWAT-------------------------------------------------->
     <hr>
     <h4>Warna</h4>
@@ -201,18 +187,19 @@
     <p></p>
     <hr>
     
+    <!---------------------------------------------------NAMA PTTTA---------------------------------------------------->
 
-    <!-- <hr>
-    <h4>nama ptta</h4>
+
+    <h4>Asumsi Nama PTTA</h4>
     <br>
-    <label for="date">nama PTTA</label>
+    <label for="date">Asumsi Nama PTTA</label>
     <div class="input-group">
-      <input name="nama_ptta" type="number" class="form-control" id="" placeholder="Isi..." aria-label="Isi..."
+      <input name="nama_ptta" type="text" class="form-control" id="" placeholder="Isi..." aria-label="Isi..."
         aria-describedby="basic-addon2">
       <div class="input-group-append">
       </div>
     </div>
-    <p></p> -->
+    <p></p>
     <hr>
     <!------------------------------------------------------SELESAI----------------------------------------------------->
 
@@ -227,11 +214,13 @@
     <div class="card text-center">
       <h6 class="card-header">Hasil</h6>
       <div class="card-body text-dark">
-        <h5 class="card-text">Nama PTTA :</h5>
-        <!-- <h5 class="card-text">Fusi Informasi Keseluruhan :</h5> -->
-        <!-- <h5 class="card-text">Identifikasi :teridentifikasi/tidak teridentifikasi</h5> -->
-      
-        <p id="hasil"></p>
+        <h5 class="card-text">Identifikasi :</h5>
+        {% if identifikasi != 0 %}
+        <p>{{identifikasi}}</p>
+        {% else %}
+        <p>0</p>
+        {% endif %}
+
         <h5 class="card-text">Prediksi :</h5>
         {% if pred != 0 %}
         <p>{{pred}}</p>

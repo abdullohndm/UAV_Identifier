@@ -157,6 +157,13 @@ def predict():
 
     # for i in range(len(df)):
     for index in range(len(perintah)):
+        if df["Nama PTTA"][0] == perintah.loc[index,"ciri"]:
+            print(perintah.loc[index,"angka"])
+            df["Nama PTTA"][0] = perintah.loc[index,"angka"]
+        else:
+            msg = 'Input Salah!'
+
+
         if df["Posisi Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Posisi Sayap"][0] = perintah.loc[index,"angka"]
@@ -236,6 +243,7 @@ def predict():
             df["Bentuk Ekor"][0] = perintah.loc[index,"angka"]
         else:
             msg = 'Input Salah!'
+
         if df["Warna"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Warna"][0] = perintah.loc[index,"angka"]
@@ -247,24 +255,29 @@ def predict():
     y_test = pd.DataFrame().from_dict({"Persenjataan":[0]})
     # print(df)
     pred = model.predict(df)
-    
     akurasi = accuracy_score(y_test, pred)
+    identifikasi = model.predict(df)
+
 
     if akurasi == 1:
         akurasi = 100
     else:
         akurasi = 0
-
     
     if pred[0] == 1:
         pred = "Bersenjata"
     else:
         pred = "Tidak Bersenjata"
 
-    if data1 is null and data2 is null and data3 is null and data4 is null and data5 is null and data6 is null and  data7 is null and data8 is null and data9 is null and data10 is null and data11 is null and data12 is null and data13 is null and data14 is null and data15 is null:
-        return render_template('input.html',pred=0,akurasi=0)
+    if identifikasi[0] == 1:
+        identifikasi = "Teridentifikasi"
     else:
-        return render_template('input.html', pred=pred, akurasi=akurasi, msg=msg)
+        identifikasi = "Tidak Teridentifikasi"
+
+    if data1 is null and data2 is null and data3 is null and data4 is null and data5 is null and data6 is null and  data7 is null and data8 is null and data9 is null and data10 is null and data11 is null and data12 is null and data13 is null and data14 is null and data15 is null:
+        return render_template('input.html',pred=0,akurasi=0,identifikasi=0)
+    else:
+        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, msg=msg)
 
 @app.route('/input')
 def input():
