@@ -1,6 +1,7 @@
 
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, json
 from flask_mysqldb import MySQL, MySQLdb
+from scipy.spatial.distance import hamming
 import joblib
 import speech_recognition as sr
 from sklearn.metrics import confusion_matrix, accuracy_score
@@ -116,10 +117,10 @@ def profile():
 
 @app.route('/predict', methods=["POST"])
 def predict():
-    with open('8per20.h5', 'rb') as f:
+    with open('terbaru.h5', 'rb') as f:
         model = joblib.load(f)
     
-    data1 = request.form['nama_ptta']
+    # data1 = request.form['nama_ptta']
     data2 = request.form['posisi_sayap']
     data3 = request.form['kemiringan_sayap']
     data4 = request.form['bentuk_sayap']
@@ -135,7 +136,6 @@ def predict():
     data14 = request.form['bentuk_ekor']
     data15 = request.form['warna']
     df = pd.DataFrame().from_dict({
-                                "Nama PTTA":[data1],
                                 "Posisi Sayap": [data2],
                                 "Kemiringan Sayap":[data3],
                                 "Bentuk Sayap":[data4], 
@@ -157,11 +157,11 @@ def predict():
 
     # for i in range(len(df)):
     for index in range(len(perintah)):
-        if df["Nama PTTA"][0] == perintah.loc[index,"ciri"]:
-            print(perintah.loc[index,"angka"])
-            df["Nama PTTA"][0] = perintah.loc[index,"angka"]
-        else:
-            msg = 'Input Salah!'
+        # if df["Nama PTTA"][0] == perintah.loc[index,"ciri"]:
+        #     print(perintah.loc[index,"angka"])
+        #     df["Nama PTTA"][0] = perintah.loc[index,"angka"]
+        # else:
+        #     msg = 'Input Salah!'
 
 
         if df["Posisi Sayap"][0] == perintah.loc[index,"ciri"]:
@@ -274,10 +274,16 @@ def predict():
     else:
         identifikasi = "Tidak Teridentifikasi"
 
-    if data1 is null and data2 is null and data3 is null and data4 is null and data5 is null and data6 is null and  data7 is null and data8 is null and data9 is null and data10 is null and data11 is null and data12 is null and data13 is null and data14 is null and data15 is null:
-        return render_template('input.html',pred=0,akurasi=0,identifikasi=0)
+    if data2 is null and data3 is null and data4 is null and data5 is null and data6 is null and  data7 is null and data8 is null and data9 is null and data10 is null and data11 is null and data12 is null and data13 is null and data14 is null and data15 is null:
+        return render_template('input.html',pred=0,akurasi=0,identifikasi=0,hm=null)
     else:
-        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, msg=msg)
+        hm = haem(df)
+        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, msg=msg, hm=hm)
+
+# @app.route('/hamming')
+
+    
+    
 
 @app.route('/input')
 def input():
@@ -383,6 +389,96 @@ def ajax_delete():
         msg = 'Record deleted successfully'   
     return jsonify(msg) 
 
+
+def haem(inp):
+    
+    input = inp
+    
+    with open('gabungan.csv', 'rb') as f:
+        df = pd.read_csv(f)
+
+        df_c = df.astype('category')
+
+        df_c["Posisi Sayap"] = df_c["Posisi Sayap"].cat.codes
+        df_c["Kemiringan Sayap"] = df_c["Kemiringan Sayap"].cat.codes
+        df_c["Bentuk Sayap"] = df_c["Bentuk Sayap"].cat.codes
+        df_c["Arah Sayap"] = df_c["Arah Sayap"].cat.codes
+        df_c["Jenis Mesin"] = df_c["Jenis Mesin"].cat.codes
+        df_c["Jumlah Mesin"] = df_c["Jumlah Mesin"].cat.codes
+        df_c["Posisi Mesin"] = df_c["Posisi Mesin"].cat.codes
+        df_c["Bentuk Badan"] = df_c["Bentuk Badan"].cat.codes
+        df_c["Hidung Badan"] = df_c["Hidung Badan"].cat.codes
+        df_c["Tengah Badan"] = df_c["Tengah Badan"].cat.codes
+        df_c["Posisi Ekor"] = df_c["Posisi Ekor"].cat.codes
+        df_c["Jumlah Ekor"] = df_c["Jumlah Ekor"].cat.codes
+        df_c["Bentuk Ekor"] = df_c["Bentuk Ekor"].cat.codes
+        df_c["Persenjataan"] = df_c["Persenjataan"].cat.codes
+        df_c["Warna"] = df_c["Warna"].cat.codes
+
+        df_c = df_c.drop(columns=["Nama PTTA","Persenjataan"])
+
+
+    BTT_3_Banshee = df_c.iloc[0]
+    Brevel = df_c.iloc[1]
+    Crecerelle = df_c.iloc[2]
+    D_4_NPU = df_c.iloc[3]
+    Model_324_Scarab = df_c.iloc[4]
+    Model_410	= df_c.iloc[5]
+    Mirach_26 = df_c.iloc[6]	
+    Mirach_100_Meteor	= df_c.iloc[7]
+    MQ_5B_Hunter = df_c.iloc[8]
+    MQ_8_Fire_Scout = df_c.iloc[9]
+    RQ_2_Pioneer = df_c.iloc[10]
+    RQ_4B_Global_Hawk	= df_c.iloc[11]
+    RQ_7B_Shadow	= df_c.iloc[12]
+    RQ_170_Sentinel	= df_c.iloc[13]
+    RQ_11B_Raven	= df_c.iloc[14]
+    ScanEagle = df_c.iloc[15]	
+    Scout	= df_c.iloc[16]
+    SHMEL_1_YAK_061 = df_c.iloc[17]	
+    C_101	= df_c.iloc[18]
+    Taifun= df_c.iloc[19]
+    Sukhoi_S_70_Okhotnik_B = df_c.iloc[20]
+    Tengden_TB_001 = df_c.iloc[21]
+    Wing_Loong_2 = df_c.iloc[22]
+    BZK_005	= df_c.iloc[23]
+    CH_5 = df_c.iloc[24]
+    nEUROn = df_c.iloc[25]
+    Qods_Mohajer_6 = df_c.iloc[26]
+    Xianglong = df_c.iloc[27]	
+    MQ_9_Reaper = df_c.iloc[28]
+    MQ_1_Predator = df_c.iloc[29]
+
+    data = [BTT_3_Banshee,Brevel,Crecerelle,D_4_NPU,Model_324_Scarab,Model_410,
+        Mirach_26,Mirach_100_Meteor,MQ_5B_Hunter,MQ_8_Fire_Scout,RQ_2_Pioneer,
+        RQ_4B_Global_Hawk,RQ_7B_Shadow,RQ_170_Sentinel,RQ_11B_Raven,ScanEagle,
+        Scout,SHMEL_1_YAK_061,C_101,Taifun,Sukhoi_S_70_Okhotnik_B,Tengden_TB_001,
+        Wing_Loong_2,BZK_005,CH_5,nEUROn,Qods_Mohajer_6,Xianglong,MQ_9_Reaper,MQ_1_Predator]
+    
+    name = ['BTT_3_Banshee','Brevel','Crecerelle','D_4_NPU','Model_324_Scarab','Model_410',
+            'Mirach_26','Mirach_100_Meteor','MQ_5B_Hunter','MQ_8_Fire_Scout','RQ_2_Pioneer',
+            'RQ_4B_Global_Hawk','RQ_7B_Shadow','RQ_170_Sentinel','RQ_11B_Raven','ScanEagle',
+            'Scout','SHMEL_1_YAK_061','C_101','Taifun','Sukhoi_S_70_Okhotnik_B','Tengden_TB_001',
+            'Wing_Loong_2','BZK_005','CH_5','nEUROn','Qods_Mohajer_6','Xianglong','MQ_9_Reaper','MQ_1_Predator']
+
+    check = []
+    for d in range(len(data)):
+        hamming_distance = hamming(input, data[d]) * len(input)
+        check.append(hamming_distance)
+
+    minim = min(check)
+    ind = check.index(minim)
+    return ([name[ind], minim])
+    # for c in range(len(check)):
+    #     if check[c] == minim:
+    #         print("nilai:",minim)
+    #         print("index:",c)
+            
+    #         return ([name[c], minim])
+    #     else:
+    #         print(check)
+    #         print(minim)
+    #         return (["tidak ada", 0.0])
 
 if __name__ == '__main__':
     app.run(debug=True)

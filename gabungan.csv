@@ -1,0 +1,31 @@
+Nama PTTA,Posisi Sayap,Kemiringan Sayap,Bentuk Sayap,Arah Sayap,Jenis Mesin,Jumlah Mesin,Posisi Mesin,Bentuk Badan,Hidung Badan,Tengah Badan,Posisi Ekor,Jumlah Ekor,Bentuk Ekor,Persenjataan,Warna
+BTT-3 Banshee,bawah,positif,delta,lancip kebelakang,baling-baling,satu,belakang,bulat,runcing,tabung,tidak ada,tunggal,kebelakang dan ujung tumpul,tidak bersenjata,polos
+Brevel,bawah,positif,lurus,lancip kebelakang,piston,satu,belakang,bulat,bulat,tabung,tidak ada,tunggal,kebelakang dan ujung tumpul,tidak bersenjata,polos
+Crecerelle,bawah,positif,delta,lancip kebelakang,baling-baling,dua,belakang,bulat,runcing,tabung,tidak ada,tunggal,kebelakang dan ujung tumpul,tidak bersenjata,polos
+D-4 NPU,atas,positif,lurus,lancip rata,baling-baling,satu,depan,bulat,runcing,tabung,diatas badan,tunggal,lancip rata dan ujung kotak,tidak bersenjata,polos
+Model 324 Scarab,bawah,tidak ada kemiringan,kebelakang,kebelakang dan lancip,turbo,satu,belakang,tebal,runcing,menonjol,dibawah badan,ganda,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+Model 410,atas,tidak ada kemiringan,lurus,lancip rata,turbo,satu,belakang,kotak,runcing,tabung,diatas badan,ganda,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+Mirach 26,atas,tidak ada kemiringan,lurus,lancip rata,piston,satu,belakang,bulat,bulat,menonjol,diatas badan,ganda,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+Mirach 100 Meteor,bawah,tidak ada kemiringan,semi delta,lancip kebelakang,jet,satu,belakang,bulat,runcing,tabung,posisi tidak ada,tunggal,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+MQ-5B Hunter,atas,tidak ada kemiringan,lurus,lancip rata,baling-baling,dua,depan dan belakang,bulat,bulat,menonjol,diatas badan,ganda,kebelakang dan ujung tumpul,tidak bersenjata,polos
+MQ-8 Fire Scout,atas,tidak ada kemiringan,lurus,lancip tidak rata,baling-baling,dua,depan dan belakang,ramping,bulat,menonjol,diatas badan,tunggal,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+RQ-2 Pioneer,atas,tidak ada kemiringan,lurus,lancip tidak rata,baling-baling,satu,belakang,bulat,runcing,menonjol,diatas badan,ganda,lancip rata dan ujung kotak,tidak bersenjata,polos
+RQ-4B Global Hawk,bawah,positif,kebelakang,lancip kebelakang,turbo,satu,belakang,tebal,bulat,menonjol,ditengah badan,empat,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+RQ-7B Shadow,atas,tidak ada kemiringan,lurus,lancip tidak rata,baling-baling,satu,belakang,kotak,runcing,menonjol,diatas badan,ganda,sirip tidak ada,tidak bersenjata,polos
+RQ-170 Sentinel,bawah,tidak ada kemiringan,kebelakang,kebelakang dan lancip,turbo,satu,belakang,tebal,runcing,menonjol,posisi tidak ada,tunggal,tidak ada,tidak bersenjata,polos
+RQ-11B Raven,atas,positif,lurus,lancip kedepan,baling-baling,satu,belakang,kotak,tumpul,tabung,dibawah badan,tunggal,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+ScanEagle,atas,positif,kebelakang,kebelakang dan lancip,baling-baling,dua,belakang,bulat,runcing,tabung,posisi tidak ada,tunggal,tidak ada,tidak bersenjata,polos
+Scout,atas,tidak ada kemiringan,lurus,lancip tidak rata,piston,satu,belakang,kotak,runcing,menonjol,diatas badan,ganda,lancip rata dan ujung kotak,tidak bersenjata,loreng
+SHMEL-1 YAK 061,atas,negatif,lurus,lancip tidak rata,baling-baling,satu,belakang,bulat,bulat,tabung,ditengah badan,tiga,bulat,tidak bersenjata,polos
+C-101,tengah,tidak ada kemiringan,delta,lancip kebelakang,jet,dua,belakang,bulat,runcing,tabung,diatas badan,ganda,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+Taifun,tengah,tidak ada kemiringan,delta,lancip kebelakang,piston,satu,belakang,bulat,bulat,tabung,diatas badan,tunggal,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+Sukhoi S-70 Okhotnik-B,bawah,tidak ada kemiringan,semi delta,lancip dibelakang,turbo,satu,belakang,tebal,runcing,menonjol,posisi tidak ada,tunggal,meruncing kebelakang dan ujung kotak,bersenjata,loreng
+Tengden TB-001,atas,tidak ada kemiringan,lurus,lancip rata,baling-baling,dua,depan,bulat,bulat,menonjol,diatas ekor,ganda,lancip rata dan ujung kotak,bersenjata,polos
+Wing Loong 2,tengah,positif,kebelakang,kebelakang dan lancip,baling-baling,satu,belakang,bulat,bulat,menonjol,diatas badan,tiga,sirip tidak ada,bersenjata,polos
+BZK-005,bawah,tidak ada kemiringan,kebelakang,kebelakang dan lancip,baling-baling,satu,belakang,bulat,bulat,menonjol,ditengah ekor,ganda,meruncing kebelakang dan ujung kotak,bersenjata,polos
+CH-5,tengah,tidak ada kemiringan,lurus,lancip rata,baling-baling,satu,belakang,bulat,runcing,menonjol,diatas badan,ganda,sirip tidak ada,bersenjata,polos
+nEUROn,bawah,tidak ada kemiringan,semi delta,lancip dibelakang,turbo,satu,belakang,kotak,runcing,menonjol,posisi tidak ada,tunggal,sirip tidak ada,bersenjata,polos
+Qods Mohajer-6,atas,tidak ada kemiringan,lurus,lancip rata,baling-baling,satu,belakang,kotak,runcing,menonjol,diatas ekor,ganda,lancip rata dan ujung kotak,bersenjata,polos
+Xianglong,bawah,tidak ada kemiringan,kebelakang,kebelakang dan lancip,jet,satu,belakang,tebal,runcing,menonjol,diatas badan,tiga,meruncing kebelakang dan ujung kotak,bersenjata,polos
+MQ-9 Reaper,bawah,positif,lurus,lancip rata,baling-baling,satu,belakang,bulat,bulat,menonjol,dibawah badan,ganda,meruncing kebelakang dan ujung kotak,bersenjata,polos
+MQ-1 Predator,bawah,positif,lurus,lancip rata,baling-baling,satu,belakang,bulat,bulat,menonjol,dibawah badan,tiga,sirip tidak ada,bersenjata,polos

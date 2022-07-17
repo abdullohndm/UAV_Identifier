@@ -44,7 +44,7 @@
     <form method="POST" action="{{url_for('predict')}}">
       <label for="date">Arah Sayap</label>
       <div class="input-group">
-        <input name="arah_sayap" type="text" class="form-control" id="arah" placeholder="Isi..." aria-label="Isi..."
+        <input name="arah_sayap" type="text" class="form-control" id="arah-lancip" placeholder="Isi..." aria-label="Isi..."
           aria-describedby="basic-addon2">
         <div class="input-group-append">
         </div>
@@ -191,7 +191,7 @@
 
 
       <h4>Asumsi Nama PTTA</h4>
-      <br>
+      <!-- <br>
       <label for="date">Asumsi Nama PTTA</label>
       <div class="input-group">
         <input name="nama_ptta" type="text" class="form-control" id="asumsi" placeholder="Isi..." aria-label="Isi..."
@@ -199,7 +199,7 @@
         <div class="input-group-append">
         </div>
       </div>
-      <p></p>
+      <p></p> -->
       <hr>
       <!------------------------------------------------------SELESAI----------------------------------------------------->
 
@@ -227,6 +227,15 @@
         {% else %}
         <p>0</p>
         {% endif %}
+
+        <h5 class="card-text">Hamming :</h5>
+        {% if hm != null %}
+        <p>nilai: {{hm[1]}}</p>
+        <p>nama ptta: {{hm[0]}}</p>
+        {% else %}
+        <p>nilai: </p>
+        <p>nama ptta: </p>
+        {% endif %}
       </div>
     </div>
 
@@ -249,13 +258,15 @@
             recognition.lang = "id-ID";
             recognition.start();
             recognition.onresult = function (e) {
-              var hasil = e.results[0][0].transcript.split(/(\s+)/);
+              // salah disini
+              var hasil = e.results[0][0].transcript.split('titik');
               // var hasil2 = hasil.join(' ');
               hasil = hasil.filter(function (hasil) {
                 return hasil != null;
               });
               console.log(hasil);
-              document.getElementById('arah').value = hasil[0];
+              document.getElementById('arah-lancip').value = hasil[0];
+              // 
               document.getElementById('miring').value = hasil[2];
               document.getElementById('posisi').value = hasil[4];
               document.getElementById('bentuk').value = hasil[6];
@@ -285,7 +296,7 @@
       }
 
       function hasil() {
-        var arah = document.getElementById('arah').value;
+        var arah = document.getElementById('arah-lancip').value;
         var miring = document.getElementById('miring').value;
         var posisi = document.getElementById('posisi').value;
         var bentuk = document.getElementById('bentuk').value;
