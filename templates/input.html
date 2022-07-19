@@ -42,9 +42,9 @@
     <h4>Sayap</h4>
     <br>
     <form method="POST" action="{{url_for('predict')}}">
-      <label for="date">Arah Sayap</label>
+      <label for="date">Posisi Sayap</label>
       <div class="input-group">
-        <input name="arah_sayap" type="text" class="form-control" id="arah-lancip" placeholder="Isi..." aria-label="Isi..."
+        <input name="posisi_sayap" type="text" class="form-control" id="posisi" placeholder="Isi..." aria-label="Isi..."
           aria-describedby="basic-addon2">
         <div class="input-group-append">
         </div>
@@ -60,18 +60,18 @@
       </div>
       <p></p>
 
-      <label for="date">Posisi Sayap</label>
+      <label for="date">Bentuk Sayap</label>
       <div class="input-group">
-        <input name="posisi_sayap" type="text" class="form-control" id="posisi" placeholder="Isi..." aria-label="Isi..."
+        <input name="bentuk_sayap" type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
           aria-describedby="basic-addon2">
         <div class="input-group-append">
         </div>
       </div>
       <p></p>
 
-      <label for="date">Bentuk Sayap</label>
+      <label for="date">Arah Sayap</label>
       <div class="input-group">
-        <input name="bentuk_sayap" type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+        <input name="arah_sayap" type="text" class="form-control" id="arah-lancip" placeholder="Isi..." aria-label="Isi..."
           aria-describedby="basic-addon2">
         <div class="input-group-append">
         </div>
@@ -190,7 +190,7 @@
       <!---------------------------------------------------NAMA PTTTA---------------------------------------------------->
 
 
-      <h4>Asumsi Nama PTTA</h4>
+      <!-- <h4>Asumsi Nama PTTA</h4> -->
       <!-- <br>
       <label for="date">Asumsi Nama PTTA</label>
       <div class="input-group">
@@ -200,7 +200,7 @@
         </div>
       </div>
       <p></p> -->
-      <hr>
+      <!-- <hr> -->
       <!------------------------------------------------------SELESAI----------------------------------------------------->
 
       <p><i>*Mohon dicek ulang agar tidak ada kesalahan</i></p>
@@ -228,10 +228,10 @@
         <p>0</p>
         {% endif %}
 
-        <h5 class="card-text">Hamming :</h5>
+        <h5 class="card-text">Hamming Distance :</h5>
         {% if hm != null %}
-        <p>nilai: {{hm[1]}}</p>
-        <p>nama ptta: {{hm[0]}}</p>
+        <p>Nilai: {{hm[1]}}</p>
+        <p>Nama PTTA yang Mendekati: {{hm[0]}}</p>
         {% else %}
         <p>nilai: </p>
         <p>nama ptta: </p>

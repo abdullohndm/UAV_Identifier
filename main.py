@@ -278,12 +278,7 @@ def predict():
         return render_template('input.html',pred=0,akurasi=0,identifikasi=0,hm=null)
     else:
         hm = haem(df)
-        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, msg=msg, hm=hm)
-
-# @app.route('/hamming')
-
-    
-    
+        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, msg=msg, hm=hm)  
 
 @app.route('/input')
 def input():
@@ -294,10 +289,10 @@ def testing():
     with open('akurasi.csv', 'rb') as f:
         konfusi = pd.read_csv(f)
     
-    accuracy = konfusi['akurasi']
-    precision = konfusi['presisi']
-    recall = konfusi['recall']
-    error_rate = konfusi['error_rate']
+    accuracy = konfusi['akurasi'][0]
+    precision = konfusi['presisi'][0]
+    recall = konfusi['recall'][0]
+    error_rate = konfusi['error_rate'][0]
 
     print(accuracy, precision, recall, error_rate)
 
