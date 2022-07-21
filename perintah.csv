@@ -1,61 +1,61 @@
 ciri,angka
-posisi atas,0
-posisi tengah,1
-posisi bawah,2
-kemiringan positif,0
-kemiringan negatif,1
-kemiringan ujung sayap,2
-kemiringan tidak ada kemiringan,3
-bentuk lurus,0
-bentuk kebelakang,1
-bentuk delta,2
-bentuk semi delta,3
-arah lancip rata,0
-arah lancip kedepan,1
-arah lancip kebelakang,2
-arah lancip tidak rata,3
-arah lancip dibelakang,4
-arah bentuk berlian,5
-arah kebelakang dan lancip,6
-jenis jet,0
-jenis baling-baling,1
-jenis piston,2
-jenis turbo,3
-jumlah satu,0
-jumlah dua,1
-jumlah tiga,2
-jumlah empat,3
-posisi depan,0
-posisi depan dan belakang,1
-posisi belakang,2
-bentuk tebal,0
-bentuk kotak,1
-bentuk bulat,2
-bentuk ramping,3
-hidung runcing,0
-hidung tumpul,1
-hidung bulat,2
-tengah menonjol,0
-tengah tabung,1
-posisi dibawah ekor,0
-posisi ditengah ekor,1
-posisi diatas ekor,2
-posisi dibawah badan,3
-posisi ditengah badan,4
-posisi diatas badan,5
-posisi posisi tidak ada,6
-jumlah tunggal,0
-jumlah ganda,1
-jumlah tiga,2
-jumlah empat,3
-bentuk lancip tidak rata dan ujung bulat,0
-bentuk lancip tidak rata dan ujung tumpul,1
-bentuk lancip tidak rata dan ujung melengkung,2
-bentuk lancip rata dan ujung kotak,3
-bentuk meruncing kebelakang dan ujung kotak,4
-bentuk kebelakang dan ujung tumpul,5
-bentuk bulat,6
-bentuk oval,7
-bentuk sirip tidak ada,8
+posisi sayap atas,0
+posisi sayap tengah,1
+posisi sayap bawah,2
+kemiringan sayap positif,0
+kemiringan sayap negatif,1
+kemiringan sayap ujung sayap,2
+kemiringan sayap tidak ada kemiringan,3
+bentuk sayap lurus,0
+bentuk sayap kebelakang,1
+bentuk sayap delta,2
+bentuk sayap semi delta,3
+arah sayap lancip rata,0
+arah sayap lancip kedepan,1
+arah sayap lancip kebelakang,2
+arah sayap lancip tidak rata,3
+arah sayap lancip dibelakang,4
+arah sayap bentuk berlian,5
+arah sayap kebelakang dan lancip,6
+jenis mesin jet,0
+jenis mesin baling-baling,1
+jenis mesin piston,2
+jenis mesin turbo,3
+jumlah mesin satu,0
+jumlah mesin dua,1
+jumlah mesin tiga,2
+jumlah mesin empat,3
+posisi mesin depan,0
+posisi mesin depan dan belakang,1
+posisi mesin belakang,2
+bentuk badan tebal,0
+bentuk badan kotak,1
+bentuk badan bulat,2
+bentuk badan ramping,3
+hidung badan runcing,0
+hidung badan tumpul,1
+hidung badan bulat,2
+tengah badan menonjol,0
+tengah badan tabung,1
+posisi badan dibawah ekor,0
+posisi badan ditengah ekor,1
+posisi badan diatas ekor,2
+posisi badan dibawah badan,3
+posisi badan ditengah badan,4
+posisi badan diatas badan,5
+posisi badan posisi tidak ada,6
+jumlah ekor tunggal,0
+jumlah ekor ganda,1
+jumlah ekor tiga,2
+jumlah ekor empat,3
+bentuk ekor lancip tidak rata dan ujung bulat,0
+bentuk ekor lancip tidak rata dan ujung tumpul,1
+bentuk ekor lancip tidak rata dan ujung melengkung,2
+bentuk ekor lancip rata dan ujung kotak,3
+bentuk ekor meruncing kebelakang dan ujung kotak,4
+bentuk ekor kebelakang dan ujung tumpul,5
+bentuk ekor bulat,6
+bentuk ekor oval,7
+bentuk ekor sirip tidak ada,8
 warna loreng,0
 warna polos,1

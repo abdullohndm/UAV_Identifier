@@ -28,7 +28,7 @@
     jenis mesin PISTON jumlah mesin SATU posisi mesin DEPAN bentuk badan TEBAL hidung badan BULAT tengah badan TABUNG
     posisi ekor DIATAS EKOR jumlah ekor TUNGGAL bentuk ekor OVAL persenjataan BERSENJATA warna POLOS"</h6>
   <h6>3. Hasil terletak di bagian bawah dan akan muncul setelah menekan tombol Run </p>
-    <h6><i>***NB: Kalimat harus sesuai dengan contoh diatas***</i></h6>
+    <h6><i>**NB: Kalimat harus sesuai dengan contoh diatas**</i></h6>
     <hr>
 
     <!---------------------------------------------------SAYAP PESAWAT-------------------------------------------------->
@@ -36,7 +36,7 @@
     <h6>Klik tombol Start dibawah ini untuk memulai</h6>
     <p></p>
     <button class="btn btn-outline-success btn-block" type="button" onclick="startDictation('name')">Start</button>
-    <button class="btn btn-outline-danger btn-block" type="button" onclick="">Stop</button>
+    <button class="btn btn-outline-danger btn-block" type="button" id="stop-record" onclick="">Stop</button>
     <br>
     <hr>
     <h4>Sayap</h4>
@@ -44,7 +44,7 @@
     <form method="POST" action="{{url_for('predict')}}">
       <label for="date">Posisi Sayap</label>
       <div class="input-group">
-        <input name="posisi_sayap" type="text" class="form-control" id="posisi" placeholder="Isi..." aria-label="Isi..."
+        <input name="posisi_sayap" type="text" class="form-control" id="posisi-sayap" placeholder="Isi..." aria-label="Isi..."
           aria-describedby="basic-addon2">
         <div class="input-group-append">
         </div>
@@ -53,7 +53,7 @@
 
       <label for="date">Kemiringan Sayap</label>
       <div class="input-group">
-        <input name="kemiringan_sayap" type="text" class="form-control" id="miring" placeholder="Isi..."
+        <input name="kemiringan_sayap" type="text" class="form-control" id="kemiringan-sayap" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
         </div>
@@ -62,7 +62,7 @@
 
       <label for="date">Bentuk Sayap</label>
       <div class="input-group">
-        <input name="bentuk_sayap" type="text" class="form-control" id="bentuk" placeholder="Isi..." aria-label="Isi..."
+        <input name="bentuk_sayap" type="text" class="form-control" id="bentuk-sayap" placeholder="Isi..." aria-label="Isi..."
           aria-describedby="basic-addon2">
         <div class="input-group-append">
         </div>
@@ -71,8 +71,8 @@
 
       <label for="date">Arah Sayap</label>
       <div class="input-group">
-        <input name="arah_sayap" type="text" class="form-control" id="arah-lancip" placeholder="Isi..." aria-label="Isi..."
-          aria-describedby="basic-addon2">
+        <input name="arah_sayap" type="text" class="form-control" id="arah-sayap" placeholder="Isi..."
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
         </div>
       </div>
@@ -201,6 +201,8 @@
       </div>
       <p></p> -->
       <!-- <hr> -->
+
+
       <!------------------------------------------------------SELESAI----------------------------------------------------->
 
       <p><i>*Mohon dicek ulang agar tidak ada kesalahan</i></p>
@@ -246,81 +248,187 @@
           title: 'ATTENTION',
           text: 'Rekaman akan dimulai!',
           showConfirmButton: false,
-          timer: 3000,
+          timer: 2000,
           timerProgressBar: true,
         })
         setTimeout(() => {
           if (window.hasOwnProperty('webkitSpeechRecognition')) {
             var recognition = new webkitSpeechRecognition();
-            recognition.continuous = false;
+
+            recognition.continuous = true;
             recognition.interimResults = false;
 
             recognition.lang = "id-ID";
             recognition.start();
             recognition.onresult = function (e) {
               // salah disini
-              var hasil = e.results[0][2].transcript.split('titik');
-              print=
+
+              console.log(e);
               // var hasil = e.results[2][2].transcript.split('titik');
               // var hasil2 = hasil.join(' ');
-              hasil = hasil.filter(function (hasil) {
-                return hasil != null;
-              });
+              var hasil = e.results[0][0].transcript.split('titik')
               console.log(hasil);
-              document.getElementById('posisi').value = hasil[0];
-              document.getElementById('kemiringan').value = hasil[2];
-              document.getElementById('bentuk').value = hasil[4];
-              document.getElementById('arah').value = hasil[6];
 
-              document.getElementById('jenis').value = hasil[8];
-              document.getElementById('jumlah').value = hasil[10];
-              document.getElementById('posisi').value = hasil[12];
+              for (let i = 0; i < hasil.length; i++) {
+                if (hasil[i].includes("posisi sayap")) {
+                  var posisisayap = document.getElementById('posisi-sayap').value;
 
-              document.getElementById('bentuk').value = hasil[14];
-              document.getElementById('hidung').value = hasil[16];
-              document.getElementById('tengah').value = hasil[18];
+                  if(posisisayap == null || !posisisayap.includes(hasil[i].trim())){
+                    posisisayap = hasil[i].trim();
+                  }
 
-              document.getElementById('posisi').value = hasil[20];
-              document.getElementById('jumlah').value = hasil[22];
-              document.getElementById('bentuk').value = hasil[24];
+                } else if (hasil[i].includes("kemiringan sayap")) {
+                  var kemiringansayap = document.getElementById('kemiringan-sayap').value;
+                  
+                  if(kemiringansayap == null || !kemiringansayap.includes(hasil[i].trim())){
+                    kemiringansayap = hasil[i].trim();
+                  }
 
-              document.getElementById('warna').value = hasil[26];
+                } else if (hasil[i].includes("bentuk sayap")) {
+                  var bentuksayap = document.getElementById('bentuk-sayap').value;
+                  
+                  if(bentuksayap == null || !bentuksayap.includes(hasil[i].trim())){
+                    bentuksayap = hasil[i].trim();
+                  }
+
+                } else if (hasil[i].includes("arah sayap")) {
+                  var arahsayap = document.getElementById('arah-sayap').value;
+                  
+                  if(arahsayap == null || !arahsayap.includes(hasil[i].trim())){
+                    arahsayap = hasil[i].trim();
+                  }
+
+
+
+
+                
+                } else if (hasil[i].includes("jenis mesin")) {
+                  var jenismesin = document.getElementById('jenis-mesin').value;
+                  
+                  if(jenismesin == null || !jenismesin.includes(hasil[i].trim())){
+                    jenismesin = hasil[i].trim();
+                  }
+
+                } else if (hasil[i].includes("jumlah mesin")) {
+                  var jumlahmesin = document.getElementById('jumlah-mesin').value;
+                  
+                  if(jumlahmesin == null || !jumlahmesin.includes(hasil[i].trim())){
+                    jumlahmesin = hasil[i].trim();
+                  }
+
+                } else if (hasil[i].includes("posisi mesin")) {
+                  var posisimesin = document.getElementById('posisi-mesin').value;
+                  
+                  if(posisimesin == null || !posisimesin.includes(hasil[i].trim())){
+                    posisimesin = hasil[i].trim();
+                  }
+
+
+
+
+
+                } else if (hasil[i].includes("bentuk badan")) {
+                  var bentukbadan = document.getElementById('bentuk-badan').value;
+                  
+                  if(bentukbadan == null || !bentukbadan.includes(hasil[i].trim())){
+                    bentukbadan = hasil[i].trim();
+                  }
+
+                } else if (hasil[i].includes("hidung badan")) {
+                  var hidungbadan = document.getElementById('hidung-badan').value;
+                  
+                  if(hidungbadan == null || !hidungbadan.includes(hasil[i].trim())){
+                    hidungbadan = hasil[i].trim();
+                  }
+
+                } else if (hasil[i].includes("tengah badan")) {
+                  var tengahbadan = document.getElementById('tengah-badan').value;
+                  
+                  if(tengahbadan == null || !tengahbadan.includes(hasil[i].trim())){
+                    tengahbadan = hasil[i].trim();
+                  }
+
+
+
+
+
+                } else if (hasil[i].includes("posisi ekor")) {
+                  var posisiekor = document.getElementById('posisi-ekor').value;
+                  
+                  if(posisiekor == null || !posisiekor.includes(hasil[i].trim())){
+                    posisiekor = hasil[i].trim();
+                  }
+
+                } else if (hasil[i].includes("jumlah ekor")) {
+                  var jumlahekor = document.getElementById('jumlah-ekor').value;
+                  
+                  if(jumlahekor == null || !jumlahekor.includes(hasil[i].trim())){
+                    jumlahekor = hasil[i].trim();
+                  }
+
+                } else if (hasil[i].includes("bentuk ekor")) {
+                  var bentukekor = document.getElementById('bentuk-ekor').value;
+                  
+                  if(bentukekor == null || !bentukekor.includes(hasil[i].trim())){
+                    bentukekor = hasil[i].trim();
+                  }
+
+                } else if (hasil[i].includes("warna")) {
+                  var warna = document.getElementById('warna').value;
+                  
+                  if(warna == null || !warna.includes(hasil[i].trim())){
+                    warna = hasil[i].trim();
+                  }                  
+                }
+              }
+
+              // hasil = hasil.filter(function (hasil) {
+              //   return hasil != null;
+              // });
+              // console.log(hasil);
 
               recognition.stop();
             };
             recognition.onerror = function (e) {
               recognition.stop();
             }
+
+            var stop = document.getElementById("stop-record");
+            
+            stop.onclick = function(e){
+              recognition.stop();
+            }
+
           }
         }, 3000);
       }
 
       function hasil() {
-        var arah = document.getElementById('posisi').value;
-        var miring = document.getElementById('kemiringan').value;
-        var posisi = document.getElementById('bentuk').value;
-        var bentuk = document.getElementById('arah').value;
+        // var arah = document.getElementById('posisi').value;
+        // var miring = document.getElementById('kemiringan').value;
+        // var posisi = document.getElementById('bentuk').value;
+        // var bentuk = document.getElementById('arah').value;
 
-        var jenis_mesin = document.getElementById('jenis').value;
-        var jumlah_mesin = document.getElementById('jumlah').value;
-        var posisi_mesin = document.getElementById('posisi').value;
+        // var jenis_mesin = document.getElementById('jenis').value;
+        // var jumlah_mesin = document.getElementById('jumlah').value;
+        // var posisi_mesin = document.getElementById('posisi').value;
 
-        var bentuk_badan = document.getElementById('bentuk').value;
-        var hidung_badan = document.getElementById('hidung').value;
-        var tengah_badan = document.getElementById('tengah').value;
+        // var bentuk_badan = document.getElementById('bentuk').value;
+        // var hidung_badan = document.getElementById('hidung').value;
+        // var tengah_badan = document.getElementById('tengah').value;
 
-        var posisi_ekor = document.getElementById('posisi').value;
-        var jumlah_ekor = document.getElementById('jumlah').value;
-        var bentuk_ekor = document.getElementById('bentuk').value;
-
-        var warna = document.getElementById('warna').value;
-        // var persenjataan = document.getElementById('persenjataan').value;
-        var asumsi = document.getElementById('asumsi').value;
+        // var posisi_ekor = document.getElementById('posisi').value;
+        // var jumlah_ekor = document.getElementById('jumlah').value;
+        // var bentuk_ekor = document.getElementById('bentuk').value;
 
         // var warna = document.getElementById('warna').value;
-        var hasil = "Posisi sayap " + arah + " kemiringan sayap " + miring + " posisi " + posisi + " bentuk sayap " + bentuk;
-        console.log(hasil);
-        document.getElementById('hasil').innerHTML = hasil;
+        // // var persenjataan = document.getElementById('persenjataan').value;
+        // var asumsi = document.getElementById('asumsi').value;
+
+        // // var warna = document.getElementById('warna').value;
+        // var hasil = "Posisi sayap " + arah + " kemiringan sayap " + miring + " posisi " + posisi + " bentuk sayap " + bentuk;
+        // console.log(hasil);
+        // document.getElementById('hasil').innerHTML = hasil;
       }
     </script>
 
