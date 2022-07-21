@@ -275,7 +275,7 @@ def predict():
         identifikasi = "Tidak Teridentifikasi"
 
     if data2 is null and data3 is null and data4 is null and data5 is null and data6 is null and  data7 is null and data8 is null and data9 is null and data10 is null and data11 is null and data12 is null and data13 is null and data14 is null and data15 is null:
-        return render_template('input.html',pred=0,akurasi=0,identifikasi=0,hm=null)
+        return render_template('input.html',pred=null,akurasi=0,identifikasi=0,hm=null)
     else:
         hm = haem(df)
         return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, msg=msg, hm=hm)  

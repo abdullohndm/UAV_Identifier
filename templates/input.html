@@ -222,7 +222,7 @@
         {% endif %}
 
         <h5 class="card-text">Prediksi :</h5>
-        {% if pred != 0 %}
+        {% if pred !=null %}
         <p>{{pred}}</p>
         {% else %}
         <p>0</p>
@@ -259,32 +259,32 @@
             recognition.start();
             recognition.onresult = function (e) {
               // salah disini
-              var hasil = e.results[0][0].transcript.split('titik');
+              var hasil = e.results[0][2].transcript.split('titik');
+              print=
+              // var hasil = e.results[2][2].transcript.split('titik');
               // var hasil2 = hasil.join(' ');
               hasil = hasil.filter(function (hasil) {
                 return hasil != null;
               });
               console.log(hasil);
-              document.getElementById('arah-lancip').value = hasil[0];
-              // 
-              document.getElementById('miring').value = hasil[2];
-              document.getElementById('posisi').value = hasil[4];
-              document.getElementById('bentuk').value = hasil[6];
+              document.getElementById('posisi').value = hasil[0];
+              document.getElementById('kemiringan').value = hasil[2];
+              document.getElementById('bentuk').value = hasil[4];
+              document.getElementById('arah').value = hasil[6];
 
-              document.getElementById('jenis-mesin').value = hasil[8];
-              document.getElementById('jumlah-mesin').value = hasil[10];
-              document.getElementById('posisi-mesin').value = hasil[12];
+              document.getElementById('jenis').value = hasil[8];
+              document.getElementById('jumlah').value = hasil[10];
+              document.getElementById('posisi').value = hasil[12];
 
-              document.getElementById('bentuk-badan').value = hasil[14];
-              document.getElementById('hidung-badan').value = hasil[16];
-              document.getElementById('tengah-badan').value = hasil[18];
+              document.getElementById('bentuk').value = hasil[14];
+              document.getElementById('hidung').value = hasil[16];
+              document.getElementById('tengah').value = hasil[18];
 
-              document.getElementById('posisi-ekor').value = hasil[20];
-              document.getElementById('jumlah-ekor').value = hasil[22];
-              document.getElementById('bentuk-ekor').value = hasil[24];
+              document.getElementById('posisi').value = hasil[20];
+              document.getElementById('jumlah').value = hasil[22];
+              document.getElementById('bentuk').value = hasil[24];
 
               document.getElementById('warna').value = hasil[26];
-              document.getElementById('asumsi').value = hasil[28];
 
               recognition.stop();
             };
@@ -296,22 +296,22 @@
       }
 
       function hasil() {
-        var arah = document.getElementById('arah-lancip').value;
-        var miring = document.getElementById('miring').value;
-        var posisi = document.getElementById('posisi').value;
-        var bentuk = document.getElementById('bentuk').value;
+        var arah = document.getElementById('posisi').value;
+        var miring = document.getElementById('kemiringan').value;
+        var posisi = document.getElementById('bentuk').value;
+        var bentuk = document.getElementById('arah').value;
 
-        var jenis_mesin = document.getElementById('jenis-mesin').value;
-        var jumlah_mesin = document.getElementById('jumlah-mesin').value;
-        var posisi_mesin = document.getElementById('posisi-mesin').value;
+        var jenis_mesin = document.getElementById('jenis').value;
+        var jumlah_mesin = document.getElementById('jumlah').value;
+        var posisi_mesin = document.getElementById('posisi').value;
 
-        var bentuk_badan = document.getElementById('bentuk-badan').value;
-        var hidung_badan = document.getElementById('hidung-badan').value;
-        var tengah_badan = document.getElementById('tengah-badan').value;
+        var bentuk_badan = document.getElementById('bentuk').value;
+        var hidung_badan = document.getElementById('hidung').value;
+        var tengah_badan = document.getElementById('tengah').value;
 
-        var posisi_ekor = document.getElementById('posisi-ekor').value;
-        var jumlah_ekor = document.getElementById('jumlah-ekor').value;
-        var bentuk_ekor = document.getElementById('bentuk-ekor').value;
+        var posisi_ekor = document.getElementById('posisi').value;
+        var jumlah_ekor = document.getElementById('jumlah').value;
+        var bentuk_ekor = document.getElementById('bentuk').value;
 
         var warna = document.getElementById('warna').value;
         // var persenjataan = document.getElementById('persenjataan').value;
