@@ -46,12 +46,11 @@
       <div class="input-group">
         <input name="posisi_sayap" type="text" class="form-control" id="posisi-sayap" placeholder="Isi..." 
         aria-label="Isi..." aria-describedby="basic-addon2" required>
+        {% if data2 != 0 %}
+        <h5>{{data2}}</h5>
+        {% endif %}
         <div class="input-group-append">
-          {% if sayap1 != 0 %}
-          <p>{{sayap1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
+
         </div>
       </div>
       <p></p>
@@ -60,12 +59,7 @@
       <div class="input-group">
         <input name="kemiringan_sayap" type="text" class="form-control" id="kemiringan-sayap" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
-        <div class="input-group-append" >
-          {% if sayap2 != 0 %}
-          <p>{{sayap2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
+        <div class="input-group-append">
         </div>
       </div>
       <p></p>
@@ -75,11 +69,6 @@
         <input name="bentuk_sayap" type="text" class="form-control" id="bentuk-sayap" placeholder="Isi..." 
         aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if sayap3 != 0 %}
-          <p>{{sayap3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -89,11 +78,6 @@
         <input name="arah_sayap" type="text" class="form-control" id="arah-sayap" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if sayap4 != 0 %}
-          <p>{{sayap4}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -107,11 +91,6 @@
         <input name="jenis_mesin" type="text" class="form-control" id="jenis-mesin" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if mesin1 != 0 %}
-          <p>{{mesin1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -121,11 +100,6 @@
         <input name="jumlah_mesin" type="text" class="form-control" id="jumlah-mesin" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if mesin2 != 0 %}
-          <p>{{mesin2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -135,11 +109,6 @@
         <input name="posisi_mesin" type="text" class="form-control" id="posisi-mesin" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if mesin3 != 0 %}
-          <p>{{mesin3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -154,11 +123,6 @@
         <input name="bentuk_badan" type="text" class="form-control" id="bentuk-badan" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if badan1 != 0 %}
-          <p>{{badan1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -168,11 +132,6 @@
         <input name="hidung_badan" type="text" class="form-control" id="hidung-badan" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if badan2 != 0 %}
-          <p>{{badan2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -182,11 +141,6 @@
         <input name="tengah_badan" type="text" class="form-control" id="tengah-badan" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if badan3 != 0 %}
-          <p>{{badan3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -201,11 +155,6 @@
         <input name="posisi_ekor" type="text" class="form-control" id="posisi-ekor" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if ekor1 != 0 %}
-          <p>{{ekor1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -215,11 +164,6 @@
         <input name="jumlah_ekor" type="text" class="form-control" id="jumlah-ekor" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if ekor2 != 0 %}
-          <p>{{ekor2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -229,11 +173,6 @@
         <input name="bentuk_ekor" type="text" class="form-control" id="bentuk-ekor" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if ekor3 != 0 %}
-          <p>{{ekor3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -247,11 +186,6 @@
         <input name="warna" type="text" class="form-control" id="warna" placeholder="Isi..." 
         aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if warna1 != 0 %}
-          <p>{{warna1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -271,6 +205,8 @@
       </div>
       <p></p> -->
       <!-- <hr> -->
+
+
       <!------------------------------------------------------SELESAI----------------------------------------------------->
 
       <p><i>*Mohon dicek ulang agar tidak ada kesalahan</i></p>
@@ -339,46 +275,102 @@
 
               for (let i = 0; i < hasil.length; i++) {
                 if (hasil[i].includes("posisi sayap")) {
-                  document.getElementById('posisi-sayap').value = hasil[i].trim().toLowerCase();
+                  var posisisayap = document.getElementById('posisi-sayap').value;
+
+                  if(posisisayap == null || !posisisayap.includes(hasil[i].trim())){
+                    posisisayap = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("kemiringan sayap")) {
-                  document.getElementById('kemiringan-sayap').value = hasil[i].trim().toLowerCase();
+                  var kemiringansayap = document.getElementById('kemiringan-sayap').value;
+                  
+                  if(kemiringansayap == null || !kemiringansayap.includes(hasil[i].trim())){
+                    kemiringansayap = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("bentuk sayap")) {
-                  document.getElementById('bentuk-sayap').value = hasil[i].trim().toLowerCase();
+                  var bentuksayap = document.getElementById('bentuk-sayap').value;
+                  
+                  if(bentuksayap == null || !bentuksayap.includes(hasil[i].trim())){
+                    bentuksayap = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("arah sayap")) {
-                  document.getElementById('arah-sayap').value = hasil[i].trim().toLowerCase();
-
+                  var arahsayap = document.getElementById('arah-sayap').value;
+                  
+                  if(arahsayap == null || !arahsayap.includes(hasil[i].trim())){
+                    arahsayap = hasil[i].trim();
+                  }
+                
                 } else if (hasil[i].includes("jenis mesin")) {
-                  document.getElementById('jenis-mesin').value = hasil[i].trim().toLowerCase();
+                  var jenismesin = document.getElementById('jenis-mesin').value;
+                  
+                  if(jenismesin == null || !jenismesin.includes(hasil[i].trim())){
+                    jenismesin = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("jumlah mesin")) {
-                  document.getElementById('jumlah-mesin').value = hasil[i].trim().toLowerCase();
+                  var jumlahmesin = document.getElementById('jumlah-mesin').value;
+                  
+                  if(jumlahmesin == null || !jumlahmesin.includes(hasil[i].trim())){
+                    jumlahmesin = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("posisi mesin")) {
-                  document.getElementById('posisi-mesin').value = hasil[i].trim().toLowerCase();
+                  var posisimesin = document.getElementById('posisi-mesin').value;
+                  
+                  if(posisimesin == null || !posisimesin.includes(hasil[i].trim())){
+                    posisimesin = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("bentuk badan")) {
-                  document.getElementById('bentuk-badan').value = hasil[i].trim().toLowerCase();
+                  var bentukbadan = document.getElementById('bentuk-badan').value;
+                  
+                  if(bentukbadan == null || !bentukbadan.includes(hasil[i].trim())){
+                    bentukbadan = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("hidung badan")) {
-                  document.getElementById('hidung-badan').value = hasil[i].trim().toLowerCase();
+                  var hidungbadan = document.getElementById('hidung-badan').value;
+                  
+                  if(hidungbadan == null || !hidungbadan.includes(hasil[i].trim())){
+                    hidungbadan = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("tengah badan")) {
-                  document.getElementById('tengah-badan').value = hasil[i].trim().toLowerCase();
+                  var tengahbadan = document.getElementById('tengah-badan').value;
+                  
+                  if(tengahbadan == null || !tengahbadan.includes(hasil[i].trim())){
+                    tengahbadan = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("posisi ekor")) {
-                  document.getElementById('posisi-ekor').value = hasil[i].trim().toLowerCase();
+                  var posisiekor = document.getElementById('posisi-ekor').value;
+                  
+                  if(posisiekor == null || !posisiekor.includes(hasil[i].trim())){
+                    posisiekor = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("jumlah ekor")) {
-                  document.getElementById('jumlah-ekor').value = hasil[i].trim().toLowerCase();
+                  var jumlahekor = document.getElementById('jumlah-ekor').value;
+                  
+                  if(jumlahekor == null || !jumlahekor.includes(hasil[i].trim())){
+                    jumlahekor = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("bentuk ekor")) {
-                  document.getElementById('bentuk-ekor').value = hasil[i].trim().toLowerCase();
+                  var bentukekor = document.getElementById('bentuk-ekor').value;
+                  
+                  if(bentukekor == null || !bentukekor.includes(hasil[i].trim())){
+                    bentukekor = hasil[i].trim();
+                  }
 
                 } else if (hasil[i].includes("warna")) {
-                  document.getElementById('warna').value = hasil[i].trim().toLowerCase();
+                  var warna = document.getElementById('warna').value;
+                  
+                  if(warna == null || !warna.includes(hasil[i].trim())){
+                    warna = hasil[i].trim();
+                  }                  
                 }
               }
 

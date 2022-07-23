@@ -37,13 +37,13 @@ hidung badan tumpul,1
 hidung badan bulat,2
 tengah badan menonjol,0
 tengah badan tabung,1
-posisi badan dibawah ekor,0
-posisi badan ditengah ekor,1
-posisi badan diatas ekor,2
-posisi badan dibawah badan,3
-posisi badan ditengah badan,4
-posisi badan diatas badan,5
-posisi badan posisi tidak ada,6
+posisi ekor dibawah ekor,0
+posisi ekor ditengah ekor,1
+posisi ekor diatas ekor,2
+posisi ekor dibawah badan,3
+posisi ekor ditengah badan,4
+posisi ekor diatas badan,5
+posisi ekor posisi tidak ada,6
 jumlah ekor tunggal,0
 jumlah ekor ganda,1
 jumlah ekor tiga,2

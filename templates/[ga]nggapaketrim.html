@@ -44,14 +44,9 @@
     <form method="POST" action="{{url_for('predict')}}">
       <label for="date">Posisi Sayap</label>
       <div class="input-group">
-        <input name="posisi_sayap" type="text" class="form-control" id="posisi-sayap" placeholder="Isi..." 
-        aria-label="Isi..." aria-describedby="basic-addon2" required>
+        <input name="posisi_sayap" type="text" class="form-control" id="posisi-sayap" placeholder="Isi..." aria-label="Isi..."
+          aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if sayap1 != 0 %}
-          <p>{{sayap1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -59,27 +54,17 @@
       <label for="date">Kemiringan Sayap</label>
       <div class="input-group">
         <input name="kemiringan_sayap" type="text" class="form-control" id="kemiringan-sayap" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
-        <div class="input-group-append" >
-          {% if sayap2 != 0 %}
-          <p>{{sayap2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
+          aria-label="Isi..." aria-describedby="basic-addon2">
+        <div class="input-group-append">
         </div>
       </div>
       <p></p>
 
       <label for="date">Bentuk Sayap</label>
       <div class="input-group">
-        <input name="bentuk_sayap" type="text" class="form-control" id="bentuk-sayap" placeholder="Isi..." 
-        aria-label="Isi..." aria-describedby="basic-addon2" required>
+        <input name="bentuk_sayap" type="text" class="form-control" id="bentuk-sayap" placeholder="Isi..." aria-label="Isi..."
+          aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if sayap3 != 0 %}
-          <p>{{sayap3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -87,13 +72,8 @@
       <label for="date">Arah Sayap</label>
       <div class="input-group">
         <input name="arah_sayap" type="text" class="form-control" id="arah-sayap" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if sayap4 != 0 %}
-          <p>{{sayap4}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -105,13 +85,8 @@
       <label for="date">Jenis Mesin</label>
       <div class="input-group">
         <input name="jenis_mesin" type="text" class="form-control" id="jenis-mesin" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if mesin1 != 0 %}
-          <p>{{mesin1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -119,13 +94,8 @@
       <label for="date">Jumlah Mesin</label>
       <div class="input-group">
         <input name="jumlah_mesin" type="text" class="form-control" id="jumlah-mesin" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if mesin2 != 0 %}
-          <p>{{mesin2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -133,13 +103,8 @@
       <label for="date">Posisi Mesin</label>
       <div class="input-group">
         <input name="posisi_mesin" type="text" class="form-control" id="posisi-mesin" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if mesin3 != 0 %}
-          <p>{{mesin3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -152,13 +117,8 @@
       <label for="date">Bentuk Badan</label>
       <div class="input-group">
         <input name="bentuk_badan" type="text" class="form-control" id="bentuk-badan" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if badan1 != 0 %}
-          <p>{{badan1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -166,13 +126,8 @@
       <label for="date">Hidung Badan</label>
       <div class="input-group">
         <input name="hidung_badan" type="text" class="form-control" id="hidung-badan" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if badan2 != 0 %}
-          <p>{{badan2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -180,13 +135,8 @@
       <label for="date">Tengah Badan</label>
       <div class="input-group">
         <input name="tengah_badan" type="text" class="form-control" id="tengah-badan" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if badan3 != 0 %}
-          <p>{{badan3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -199,13 +149,8 @@
       <label for="date">Posisi Ekor</label>
       <div class="input-group">
         <input name="posisi_ekor" type="text" class="form-control" id="posisi-ekor" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if ekor1 != 0 %}
-          <p>{{ekor1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -213,13 +158,8 @@
       <label for="date">Jumlah Ekor</label>
       <div class="input-group">
         <input name="jumlah_ekor" type="text" class="form-control" id="jumlah-ekor" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if ekor2 != 0 %}
-          <p>{{ekor2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -227,13 +167,8 @@
       <label for="date">Bentuk Ekor</label>
       <div class="input-group">
         <input name="bentuk_ekor" type="text" class="form-control" id="bentuk-ekor" placeholder="Isi..."
-          aria-label="Isi..." aria-describedby="basic-addon2" required>
+          aria-label="Isi..." aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if ekor3 != 0 %}
-          <p>{{ekor3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -244,14 +179,9 @@
       <br>
       <label for="date">Warna</label>
       <div class="input-group">
-        <input name="warna" type="text" class="form-control" id="warna" placeholder="Isi..." 
-        aria-label="Isi..." aria-describedby="basic-addon2" required>
+        <input name="warna" type="text" class="form-control" id="warna" placeholder="Isi..." aria-label="Isi..."
+          aria-describedby="basic-addon2">
         <div class="input-group-append">
-          {% if warna1 != 0 %}
-          <p>{{warna1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -339,46 +269,46 @@
 
               for (let i = 0; i < hasil.length; i++) {
                 if (hasil[i].includes("posisi sayap")) {
-                  document.getElementById('posisi-sayap').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('posisi-sayap').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("kemiringan sayap")) {
-                  document.getElementById('kemiringan-sayap').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('kemiringan-sayap').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("bentuk sayap")) {
-                  document.getElementById('bentuk-sayap').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('bentuk-sayap').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("arah sayap")) {
-                  document.getElementById('arah-sayap').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('arah-sayap').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("jenis mesin")) {
-                  document.getElementById('jenis-mesin').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('jenis-mesin').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("jumlah mesin")) {
-                  document.getElementById('jumlah-mesin').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('jumlah-mesin').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("posisi mesin")) {
-                  document.getElementById('posisi-mesin').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('posisi-mesin').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("bentuk badan")) {
-                  document.getElementById('bentuk-badan').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('bentuk-badan').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("hidung badan")) {
-                  document.getElementById('hidung-badan').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('hidung-badan').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("tengah badan")) {
-                  document.getElementById('tengah-badan').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('tengah-badan').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("posisi ekor")) {
-                  document.getElementById('posisi-ekor').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('posisi-ekor').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("jumlah ekor")) {
-                  document.getElementById('jumlah-ekor').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('jumlah-ekor').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("bentuk ekor")) {
-                  document.getElementById('bentuk-ekor').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('bentuk-ekor').value = hasil[i].trim();
 
                 } else if (hasil[i].includes("warna")) {
-                  document.getElementById('warna').value = hasil[i].trim().toLowerCase();
+                  document.getElementById('warna').value = hasil[i].trim();
                 }
               }
 
