@@ -123,129 +123,129 @@ def predict():
     perintah = pd.read_csv("perintah.csv")
     # data1 = request.form['nama_ptta']
     data2 = request.form['posisi_sayap']
-    if "posisi sayap" in data2 and data2 is not null:
-        for i in range(len(perintah)):
-            if data2 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",sayap1="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",sayap1="Input Tidak Sesuai!")
+    # if "posisi sayap" in data2 and data2 is not null:
+    #     for i in range(len(perintah)):
+    #         if data2 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",sayap1="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",sayap1="Input Tidak Sesuai!")
     
     data3 = request.form['kemiringan_sayap']
-    if "kemiringan sayap" in data3 and data3 is not null:
-        print(data3)
-        for i in range(len(perintah)):
-            if data3 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",sayap2="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",sayap2="Input Tidak Sesuai!")
+    # if "kemiringan sayap" in data3 and data3 is not null:
+    #     print(data3)
+    #     for i in range(len(perintah)):
+    #         if data3 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",sayap2="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",sayap2="Input Tidak Sesuai!")
 
     data4 = request.form['bentuk_sayap']
-    if "bentuk sayap" in data4 and data4 is not null:
-        print(data4)
-        for i in range(len(perintah)):
-            if data4 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",sayap3="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",sayap3="Input Tidak Sesuai!")
+    # if "bentuk sayap" in data4 and data4 is not null:
+    #     print(data4)
+    #     for i in range(len(perintah)):
+    #         if data4 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",sayap3="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",sayap3="Input Tidak Sesuai!")
 
     data5 = request.form['arah_sayap']
-    if "arah sayap" in data5 and data5 is not null:
-        print(data5)
-        for i in range(len(perintah)):
-            if data5 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",sayap4="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",sayap4="Input Tidak Sesuai!")
+    # if "arah sayap" in data5 and data5 is not null:
+    #     print(data5)
+    #     for i in range(len(perintah)):
+    #         if data5 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",sayap4="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",sayap4="Input Tidak Sesuai!")
 
     data6 = request.form['jenis_mesin']
-    if "jenis mesin" in data6 and data6 is not null:
-        print(data6)
-        for i in range(len(perintah)):
-            if data6 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",mesin1="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",mesin1="Input Tidak Sesuai!")
+    # if "jenis mesin" in data6 and data6 is not null:
+    #     print(data6)
+    #     for i in range(len(perintah)):
+    #         if data6 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",mesin1="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",mesin1="Input Tidak Sesuai!")
 
     data7 = request.form['jumlah_mesin']
-    if "jumlah mesin" in data7 and data7 is not null:
-        print(data7)
-        for i in range(len(perintah)):
-            if data7 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",mesin2="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",mesin2="Input Tidak Sesuai!")
+    # if "jumlah mesin" in data7 and data7 is not null:
+    #     print(data7)
+    #     for i in range(len(perintah)):
+    #         if data7 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",mesin2="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",mesin2="Input Tidak Sesuai!")
 
     data8 = request.form['posisi_mesin']
-    if "posisi mesin" in data8 and data8 is not null:
-        print(data8)
-        for i in range(len(perintah)):
-            if data8 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",mesin3="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",mesin3="Input Tidak Sesuai!")
+    # if "posisi mesin" in data8 and data8 is not null:
+    #     print(data8)
+    #     for i in range(len(perintah)):
+    #         if data8 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",mesin3="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",mesin3="Input Tidak Sesuai!")
 
     data9 = request.form['bentuk_badan']
-    if "bentuk badan" in data9 and data9 is not null:
-        print(data9)
-        for i in range(len(perintah)):
-            if data9 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",badan1="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",badan1="Input Tidak Sesuai!")
+    # if "bentuk badan" in data9 and data9 is not null:
+    #     print(data9)
+    #     for i in range(len(perintah)):
+    #         if data9 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",badan1="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",badan1="Input Tidak Sesuai!")
 
     data10 = request.form['hidung_badan']
-    if "hidung badan" in data10 and data10 is not null:
-        print(data10)
-        for i in range(len(perintah)):
-            if data10 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",badan2="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",badan2="Input Tidak Sesuai!")
+    # if "hidung badan" in data10 and data10 is not null:
+    #     print(data10)
+    #     for i in range(len(perintah)):
+    #         if data10 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",badan2="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",badan2="Input Tidak Sesuai!")
 
     data11 = request.form['tengah_badan']
-    if "tengah badan" in data11 and data11 is not null:
-        print(data11)
-        for i in range(len(perintah)):
-            if data11 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",badan3="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",badan3="Input Tidak Sesuai!")
+    # if "tengah badan" in data11 and data11 is not null:
+    #     print(data11)
+    #     for i in range(len(perintah)):
+    #         if data11 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",badan3="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",badan3="Input Tidak Sesuai!")
 
     data12 = request.form['posisi_ekor']
-    if "posisi ekor" in data12 and data12 is not null:
-        print(data12)
-        for i in range(len(perintah)):
-            if data12 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",ekor1="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",ekor1="Input Tidak Sesuai!")
+    # if "posisi ekor" in data12 and data12 is not null:
+    #     print(data12)
+    #     for i in range(len(perintah)):
+    #         if data12 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",ekor1="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",ekor1="Input Tidak Sesuai!")
 
     data13 = request.form['jumlah_ekor']
-    if "jumlah ekor" in data13 and data13 is not null:
-        print(data13)
-        for i in range(len(perintah)):
-            if data13 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",ekor2="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",ekor2="Input Tidak Sesuai!")
+    # if "jumlah ekor" in data13 and data13 is not null:
+    #     print(data13)
+    #     for i in range(len(perintah)):
+    #         if data13 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",ekor2="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",ekor2="Input Tidak Sesuai!")
 
     data14 = request.form['bentuk_ekor']
-    if "bentuk ekor" in data14 and data14 is not null:
-        print(data14)
-        for i in range(len(perintah)):
-            if data14 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",ekor3="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",ekor3="Input Tidak Sesuai!")
+    # if "bentuk ekor" in data14 and data14 is not null:
+    #     print(data14)
+    #     for i in range(len(perintah)):
+    #         if data14 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",ekor3="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",ekor3="Input Tidak Sesuai!")
 
     data15 = request.form['warna']
-    if "warna" in data15 and data15 is not null:
-        print(data15)
-        for i in range(len(perintah)):
-            if data15 != perintah.loc[i,"ciri"]:
-                return render_template("input.html",warna1="Input Tidak Sesuai!")
-    else:
-        return render_template("input.html",warna1="Input Tidak Sesuai!")
+    # if "warna" in data15 and data15 is not null:
+    #     print(data15)
+    #     for i in range(len(perintah)):
+    #         if data15 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",warna1="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",warna1="Input Tidak Sesuai!")
 
     df = pd.DataFrame().from_dict({
                                 "Posisi Sayap": [data2],
