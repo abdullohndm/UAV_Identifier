@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<h2>Halaman Peringatan</h2>
+<div>
+    <div class="alert alert-danger" role="alert">
+        <h3 class="alert-heading">Input Ada yang Salah!</h3>
+        <p>Input atau Masukkan Ciri PTTA Anda Tidak Sesuai Dengan Aturan yang Ada. Perhatikan Pada Kalimat "Titik" Sebagai Pemisah atau Ciri yang Tidak Ada Pada Tabel Perintah.</p>
+        <hr>
+        <p class="mb-0">Klik Tombol
+            <td>
+                <a href="{{ url_for('input') }}"><button type="button" class="btn btn-primary">Back</button></a>                        
+            </td>
+            Untuk Mengulangi
+        </p>
+    </div>
+</div>
+{% endblock %}
