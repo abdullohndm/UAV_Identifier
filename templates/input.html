@@ -24,9 +24,9 @@
   <h6>1. Berikut Tabel Komando Input Suara</h6>
   <img src="static/pic/itu.jpg" class="img-center" alt="Responsive image" style="max-width:50%;">
   <h6>2. Contoh Input Suara</h6>
-  <p>"Posisi sayap BAWAH kemiringan sayap POSITIF bentuk sayap DELTA arah sayap LANCIP KEBELAKANG
-    jenis mesin PISTON jumlah mesin SATU posisi mesin DEPAN bentuk badan TEBAL hidung badan BULAT tengah badan TABUNG
-    posisi ekor DIATAS EKOR jumlah ekor TUNGGAL bentuk ekor OVAL persenjataan BERSENJATA warna POLOS"</h6>
+  <p>"Posisi sayap BAWAH titik kemiringan sayap POSITIF titik bentuk sayap DELTA titik arah sayap LANCIP KEBELAKANG titik
+    jenis mesin PISTON titik jumlah mesin SATU titik posisi mesin DEPAN titik bentuk badan TEBAL titik hidung badan BULAT titik tengah badan TABUNG titik
+    posisi ekor DIATAS EKOR titik jumlah ekor TUNGGAL titik bentuk ekor OVAL titik warna POLOS"</h6>
   <h6>3. Hasil terletak di bagian bawah dan akan muncul setelah menekan tombol Run </p>
     <h6><i>**NB: Kalimat harus sesuai dengan contoh diatas**</i></h6>
     <hr>
@@ -47,11 +47,6 @@
         <input name="posisi_sayap" type="text" class="form-control" id="posisi-sayap" placeholder="Isi..." 
         aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if sayap1 != 0 %}
-          <p>{{sayap1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -61,11 +56,6 @@
         <input name="kemiringan_sayap" type="text" class="form-control" id="kemiringan-sayap" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append" >
-          {% if sayap2 != 0 %}
-          <p>{{sayap2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -75,11 +65,6 @@
         <input name="bentuk_sayap" type="text" class="form-control" id="bentuk-sayap" placeholder="Isi..." 
         aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if sayap3 != 0 %}
-          <p>{{sayap3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -89,11 +74,6 @@
         <input name="arah_sayap" type="text" class="form-control" id="arah-sayap" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if sayap4 != 0 %}
-          <p>{{sayap4}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -107,11 +87,6 @@
         <input name="jenis_mesin" type="text" class="form-control" id="jenis-mesin" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if mesin1 != 0 %}
-          <p>{{mesin1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -121,11 +96,6 @@
         <input name="jumlah_mesin" type="text" class="form-control" id="jumlah-mesin" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if mesin2 != 0 %}
-          <p>{{mesin2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -135,11 +105,6 @@
         <input name="posisi_mesin" type="text" class="form-control" id="posisi-mesin" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if mesin3 != 0 %}
-          <p>{{mesin3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -154,11 +119,6 @@
         <input name="bentuk_badan" type="text" class="form-control" id="bentuk-badan" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if badan1 != 0 %}
-          <p>{{badan1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -168,11 +128,6 @@
         <input name="hidung_badan" type="text" class="form-control" id="hidung-badan" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if badan2 != 0 %}
-          <p>{{badan2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -182,11 +137,6 @@
         <input name="tengah_badan" type="text" class="form-control" id="tengah-badan" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if badan3 != 0 %}
-          <p>{{badan3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -201,11 +151,6 @@
         <input name="posisi_ekor" type="text" class="form-control" id="posisi-ekor" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if ekor1 != 0 %}
-          <p>{{ekor1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -215,11 +160,6 @@
         <input name="jumlah_ekor" type="text" class="form-control" id="jumlah-ekor" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if ekor2 != 0 %}
-          <p>{{ekor2}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -229,11 +169,6 @@
         <input name="bentuk_ekor" type="text" class="form-control" id="bentuk-ekor" placeholder="Isi..."
           aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if ekor3 != 0 %}
-          <p>{{ekor3}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>
@@ -247,11 +182,6 @@
         <input name="warna" type="text" class="form-control" id="warna" placeholder="Isi..." 
         aria-label="Isi..." aria-describedby="basic-addon2" required>
         <div class="input-group-append">
-          {% if warna1 != 0 %}
-          <p>{{warna1}}</p>
-          {% else %}
-          <p>Input Posisi Sayap Salah!</p>
-          {% endif %}
         </div>
       </div>
       <p></p>

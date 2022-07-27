@@ -117,7 +117,6 @@ def profile():
 
 @app.route('/predict', methods=["POST"])
 def predict():
-    msg=''
     with open('terbaru.h5', 'rb') as f:
         model = joblib.load(f)
     
@@ -175,25 +174,25 @@ def predict():
             print(perintah.loc[index,"angka"])
             df["Posisi Sayap"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
         if df["Kemiringan Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Kemiringan Sayap"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
         
         if df["Bentuk Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Bentuk Sayap"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
         if df["Arah Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Arah Sayap"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
 # ------------------------------------------------------------------------
 
@@ -201,19 +200,19 @@ def predict():
             print(perintah.loc[index,"angka"])
             df["Jenis Mesin"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
         if df["Jumlah Mesin"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Jumlah Mesin"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
         
         if df["Posisi Mesin"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Posisi Mesin"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
 # ------------------------------------------------------------------------
 
@@ -221,19 +220,19 @@ def predict():
             print(perintah.loc[index,"angka"])
             df["Bentuk Badan"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
         if df["Hidung Badan"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Hidung Badan"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!' 
 
         if df["Tengah Badan"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Tengah Badan"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
 # ------------------------------------------------------------------------
 
@@ -241,25 +240,25 @@ def predict():
             print(perintah.loc[index,"angka"])
             df["Posisi Ekor"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
         if df["Jumlah Ekor"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Jumlah Ekor"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
         if df["Bentuk Ekor"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Bentuk Ekor"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
         if df["Warna"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Warna"][0] = perintah.loc[index,"angka"]
         else:
-            return render_template('erroralert.html')
+            msg = 'Input Salah!'
 
 # ------------------------------------------------------------------------
 
@@ -289,7 +288,11 @@ def predict():
         return render_template('input.html',pred=null,akurasi=0,identifikasi=0,hm=null)
     else:
         hm = haem(df)
-        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, msg=msg, hm=hm)  
+        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, hm=hm)  
+
+@app.route('/error')
+def error():
+    return render_template('erroralert.html')
 
 @app.route('/input')
 def input():
