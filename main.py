@@ -28,7 +28,7 @@ mysql.init_app(app)
 @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    msg=''
+    msg= ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         username = request.form['username']
         password = request.form['password']
@@ -41,8 +41,8 @@ def login():
             session['username'] = account['username']
             return redirect(url_for('home'))
         else:
-            msg("Incorrect username/password!", "danger")
-    return render_template('login.html',title="Login")
+            msg = 'Incorrect username/password!'
+    return render_template('login.html',title="Login", msg=msg)
 
 @app.route('/logout')
 def logout():
@@ -120,8 +120,16 @@ def predict():
     with open('terbaru.h5', 'rb') as f:
         model = joblib.load(f)
     
+    perintah = pd.read_csv("perintah.csv")
     # data1 = request.form['nama_ptta']
     data2 = request.form['posisi_sayap']
+    # if "posisi sayap" in data2 and data2 is not null:
+    #     for i in range(len(perintah)):
+    #         if data2 != perintah.loc[i,"ciri"]:
+    #             return render_template("input.html",sayap1="Input Tidak Sesuai!")
+    # else:
+    #     return render_template("input.html",sayap1="Input Tidak Sesuai!")
+    
     data3 = request.form['kemiringan_sayap']
     data4 = request.form['bentuk_sayap']
     data5 = request.form['arah_sayap']
@@ -135,6 +143,7 @@ def predict():
     data13 = request.form['jumlah_ekor']
     data14 = request.form['bentuk_ekor']
     data15 = request.form['warna']
+
     df = pd.DataFrame().from_dict({
                                 "Posisi Sayap": [data2],
                                 "Kemiringan Sayap":[data3],
@@ -151,8 +160,6 @@ def predict():
                                 "Bentuk Ekor":[data14], 
                                 "Warna":[data15]})
     
-    perintah = pd.read_csv("perintah.csv")
-
 # ------------------------------------------------------------------------
 
     # for i in range(len(df)):
@@ -162,7 +169,6 @@ def predict():
         #     df["Nama PTTA"][0] = perintah.loc[index,"angka"]
         # else:
         #     msg = 'Input Salah!'
-
 
         if df["Posisi Sayap"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
@@ -215,11 +221,13 @@ def predict():
             df["Bentuk Badan"][0] = perintah.loc[index,"angka"]
         else:
             msg = 'Input Salah!'
+
         if df["Hidung Badan"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Hidung Badan"][0] = perintah.loc[index,"angka"]
         else:
-            msg = 'Input Salah!'
+            msg = 'Input Salah!' 
+
         if df["Tengah Badan"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Tengah Badan"][0] = perintah.loc[index,"angka"]
@@ -233,11 +241,13 @@ def predict():
             df["Posisi Ekor"][0] = perintah.loc[index,"angka"]
         else:
             msg = 'Input Salah!'
+
         if df["Jumlah Ekor"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Jumlah Ekor"][0] = perintah.loc[index,"angka"]
         else:
             msg = 'Input Salah!'
+
         if df["Bentuk Ekor"][0] == perintah.loc[index,"ciri"]:
             print(perintah.loc[index,"angka"])
             df["Bentuk Ekor"][0] = perintah.loc[index,"angka"]
@@ -275,10 +285,14 @@ def predict():
         identifikasi = "Tidak Teridentifikasi"
 
     if data2 is null and data3 is null and data4 is null and data5 is null and data6 is null and  data7 is null and data8 is null and data9 is null and data10 is null and data11 is null and data12 is null and data13 is null and data14 is null and data15 is null:
-        return render_template('input.html',pred=0,akurasi=0,identifikasi=0,hm=null)
+        return render_template('input.html',pred=null,akurasi=0,identifikasi=0,hm=null)
     else:
         hm = haem(df)
-        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, msg=msg, hm=hm)  
+        return render_template('input.html', pred=pred, akurasi=akurasi, identifikasi=identifikasi, hm=hm)  
+
+@app.route('/error')
+def error():
+    return render_template('erroralert.html')
 
 @app.route('/input')
 def input():
