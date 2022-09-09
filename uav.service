@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve UAV Identifier
+After=network.target
+
+[Service]
+User=cairg
+Group=www-data
+WorkingDirectory=/home/cairg/UAV_Identifier
+Environment="PATH=/home/cairg/UAV_Identifier/uavenv/bin"
+ExecStart=/home/cairg/UAV_Identifier/uavenv/bin/uwsgi --ini uav.ini
+
+[Install]
+WantedBy=multi-user.target

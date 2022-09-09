@@ -1,0 +1,9 @@
+server {
+	listen 3500;
+	server_name riset.cairg.my.id;
+
+	location / {
+		include uwsgi_params;
+		uwsgi_pass unix:/home/cairg/UAV_Identifier/uav.sock;
+	}
+}
