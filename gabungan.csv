@@ -37,9 +37,9 @@ Tupolev Tu-22m,bawah,positif,kebelakang,lancip dibelakang,turbo,satu,belakang,ko
 Yakovlev Yak-130,tengah,tidak ada kemiringan,delta,lancip dibelakang,turbo,satu,belakang,kotak,runcing,menonjol,ditengah badan,tiga,lancip rata dan ujung kotak,bersenjata,polos
 Shenyang J-31,atas,tidak ada kemiringan,delta,lancip dibelakang,turbo,dua,belakang,kotak,runcing,menonjol,diatas badan,empat,sirip tidak ada,bersenjata,polos
 Shenyang J-15,atas,tidak ada kemiringan,semi delta,kebelakang dan lancip,turbo,dua,belakang,kotak,runcing,menonjol,dibawah badan,empat,sirip tidak ada,bersenjata,polos
-Xi'an H-20,tengah,negatif,semi delta,kebelakang dan lancip,turbo,dua,belakang,kotak,bulat,menonjol,ditengah badan,ganda,sirip tidak ada,bersenjata,polos
-Xi'an H-6,tengah,tidak ada kemiringan,kebelakang,lancip kebelakang,turbo,satu,belakang,bulat,bulat,tabung,dibawah ekor,tiga,lancip rata dan ujung kotak,bersenjata,polos
-Xi'an JH-7,atas,negatif,semi delta,kebelakang dan lancip,turbo,dua,belakang,kotak,runcing,tabung,diatas badan,tiga,kebelakang dan ujung tumpul,bersenjata,polos
+Xian H-20,tengah,negatif,semi delta,kebelakang dan lancip,turbo,dua,belakang,kotak,bulat,menonjol,ditengah badan,ganda,sirip tidak ada,bersenjata,polos
+Xian H-6,tengah,tidak ada kemiringan,kebelakang,lancip kebelakang,turbo,satu,belakang,bulat,bulat,tabung,dibawah ekor,tiga,lancip rata dan ujung kotak,bersenjata,polos
+Xian JH-7,atas,negatif,semi delta,kebelakang dan lancip,turbo,dua,belakang,kotak,runcing,tabung,diatas badan,tiga,kebelakang dan ujung tumpul,bersenjata,polos
 Hongdu JL-15,tengah,tidak ada kemiringan,delta,lancip dibelakang,turbo,dua,belakang,kotak,runcing,menonjol,ditengah badan,tiga,meruncing kebelakang dan ujung kotak,bersenjata,polos
 BAE System Hawk,bawah,tidak ada kemiringan,kebelakang,kebelakang dan lancip,turbo,satu,belakang,kotak,runcing,menonjol,diatas badan,tiga,lancip tidak rata dan ujung melengkung,tidak bersenjata,polos
 Dassault Rafale,atas,tidak ada kemiringan,delta,kebelakang dan lancip,turbo,dua,belakang,kotak,runcing,menonjol,diatas badan,tunggal,lancip tidak rata dan ujung melengkung,bersenjata,polos
@@ -64,8 +64,8 @@ Shaanxi KJ-500,atas,tidak ada kemiringan,lurus,lancip rata,baling-baling,empat,d
 Airbus A400M Atlas,atas,negatif,lurus,lancip rata,baling-baling,empat,depan dan belakang,tebal,bulat,tabung,diatas ekor,tiga,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
 Boeing E-3 Sentry,tengah,tidak ada kemiringan,kebelakang,lancip kebelakang,turbo,empat,depan dan belakang,bulat,bulat,tabung,ditengah badan,tiga,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
 Beriev A-50,atas,negatif,kebelakang,lancip kebelakang,turbo,empat,depan dan belakang,tebal,bulat,tabung,diatas ekor,tiga,meruncing kebelakang dan ujung kotak,tidak bersenjata,loreng
-Boeing 737 AEW&C,tengah,tidak ada kemiringan,kebelakang,lancip kebelakang,turbo,dua,depan dan belakang,bulat,bulat,tabung,ditengah badan,tiga,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
-DRDO AEW&CS,bawah,tidak ada kemiringan,kebelakang,lancip kebelakang,turbo,dua,depan dan belakang,bulat,runcing,tabung,ditengah badan,tiga,lancip rata dan ujung kotak,tidak bersenjata,polos
+Boeing 737 AEWC,tengah,tidak ada kemiringan,kebelakang,lancip kebelakang,turbo,dua,depan dan belakang,bulat,bulat,tabung,ditengah badan,tiga,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+DRDO AEWCS,bawah,tidak ada kemiringan,kebelakang,lancip kebelakang,turbo,dua,depan dan belakang,bulat,runcing,tabung,ditengah badan,tiga,lancip rata dan ujung kotak,tidak bersenjata,polos
 Boeing P-8 Poseidon,tengah,tidak ada kemiringan,kebelakang,lancip kebelakang,turbo,dua,depan dan belakang,bulat,runcing,tabung,ditengah badan,tiga,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
-Saab 340 AEW&C,bawah,positif,lurus,lancip tidak rata,baling-baling,dua,depan dan belakang,bulat,runcing,tabung,ditengah badan,tiga,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
+Saab 340 AEWC,bawah,positif,lurus,lancip tidak rata,baling-baling,dua,depan dan belakang,bulat,runcing,tabung,ditengah badan,tiga,meruncing kebelakang dan ujung kotak,tidak bersenjata,polos
 Sukhoi SU-35,atas,tidak ada kemiringan,semi delta,kebelakang dan lancip,turbo,dua,belakang,bulat,runcing,menonjol,diatas badan,empat,kebelakang dan ujung tumpul,bersenjata,loreng

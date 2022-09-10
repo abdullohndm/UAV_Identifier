@@ -446,7 +446,7 @@ def haem(inp):
     Scout	= df_c.iloc[16]
     SHMEL_1_YAK_061 = df_c.iloc[17]	
     C_101	= df_c.iloc[18]
-    Taifun= df_c.iloc[19]
+    Taifun = df_c.iloc[19]
     Sukhoi_S_70_Okhotnik_B = df_c.iloc[20]
     Tengden_TB_001 = df_c.iloc[21]
     Wing_Loong_2 = df_c.iloc[22]
@@ -457,18 +457,74 @@ def haem(inp):
     Xianglong = df_c.iloc[27]	
     MQ_9_Reaper = df_c.iloc[28]
     MQ_1_Predator = df_c.iloc[29]
+    Tu_160M_Blackjack = df_c.iloc[30]
+    Sukhoi_SU_57 = df_c.iloc[31]
+    F_15C_Eagle = df_c.iloc[32]
+    L_39_Albatros = df_c.iloc[33]
+    Tupolev_Tu_22m = df_c.iloc[34]
+    Yakovlev_Yak_130 = df_c.iloc[35]
+    Shenyang_J_31 = df_c.iloc[36]
+    Shenyang_J_15 = df_c.iloc[37]
+    Xian_H_20 = df_c.iloc[38]
+    Xian_H_6 = df_c.iloc[39]
+    Xian_JH_7 = df_c.iloc[40]
+    Hongdu_JL_15 = df_c.iloc[41]
+    BAE_System_Hawk = df_c.iloc[42]
+    Dassault_Rafale = df_c.iloc[43]
+    F_22_Raptor = df_c.iloc[44]
+    Chengdu_J_10 = df_c.iloc[45]
+    T_38B_Talon = df_c.iloc[46]
+    Sukhoi_SU_34 = df_c.iloc[47]
+    F_35_Lightning_II = df_c.iloc[48]
+    Boeing_C_17_Globemaster_III = df_c.iloc[49]
+    V_22_Osprey = df_c.iloc[50]
+    Northrop_Grumman_B_2_Spirit = df_c.iloc[51]
+    Xian_Y_20 = df_c.iloc[52]
+    Shaanxi_Y_9 = df_c.iloc[53]
+    Eurofighter_Typhoon = df_c.iloc[54]
+    Chengdu_J_20 = df_c.iloc[55]
+    Mikoyan_MiG_31 = df_c.iloc[56]
+    Boeing_EA_18G_Growler = df_c.iloc[57]
+    F_16_Fighting_Falcon = df_c.iloc[58]
+    Rockwell_B_1_Lancer = df_c.iloc[59]
+    Alenia_C_27J_Spartan = df_c.iloc[60]
+    Shaanxi_KJ_500 = df_c.iloc[61]
+    Airbus_A400M_Atlas = df_c.iloc[62]
+    Boeing_E_3_Sentry = df_c.iloc[63]
+    Beriev_A_50 = df_c.iloc[64]
+    Boeing_737_AEWC = df_c.iloc[65]
+    DRDO_AEWCS = df_c.iloc[66]
+    Boeing_P_8_Poseidon = df_c.iloc[67]
+    Saab_340_AEWC = df_c.iloc[68]
+    Sukhoi_SU_35 = df_c.iloc[69]
 
     data = [BTT_3_Banshee,Brevel,Crecerelle,D_4_NPU,Model_324_Scarab,Model_410,
         Mirach_26,Mirach_100_Meteor,MQ_5B_Hunter,MQ_8_Fire_Scout,RQ_2_Pioneer,
         RQ_4B_Global_Hawk,RQ_7B_Shadow,RQ_170_Sentinel,RQ_11B_Raven,ScanEagle,
         Scout,SHMEL_1_YAK_061,C_101,Taifun,Sukhoi_S_70_Okhotnik_B,Tengden_TB_001,
-        Wing_Loong_2,BZK_005,CH_5,nEUROn,Qods_Mohajer_6,Xianglong,MQ_9_Reaper,MQ_1_Predator]
+        Wing_Loong_2,BZK_005,CH_5,nEUROn,Qods_Mohajer_6,Xianglong,MQ_9_Reaper,MQ_1_Predator,
+        Tu_160M_Blackjack, Sukhoi_SU_57, F_15C_Eagle, L_39_Albatros, Tupolev_Tu_22m,
+        Yakovlev_Yak_130, Shenyang_J_31, Shenyang_J_15, Xian_H_20, Xian_H_6,
+        Xian_JH_7, Hongdu_JL_15, BAE_System_Hawk, Dassault_Rafale, F_22_Raptor,
+        Chengdu_J_10, T_38B_Talon, Sukhoi_SU_34, F_35_Lightning_II, Boeing_C_17_Globemaster_III, 
+        V_22_Osprey, Northrop_Grumman_B_2_Spirit, Xian_Y_20, Shaanxi_Y_9, Eurofighter_Typhoon, 
+        Chengdu_J_20, Mikoyan_MiG_31, Boeing_EA_18G_Growler, F_16_Fighting_Falcon, Rockwell_B_1_Lancer,
+        Alenia_C_27J_Spartan, Shaanxi_KJ_500, Airbus_A400M_Atlas, Boeing_E_3_Sentry, Beriev_A_50, 
+        Boeing_737_AEWC, DRDO_AEWCS, Boeing_P_8_Poseidon, Saab_340_AEWC, Sukhoi_SU_35]
     
     name = ['BTT_3_Banshee','Brevel','Crecerelle','D_4_NPU','Model_324_Scarab','Model_410',
             'Mirach_26','Mirach_100_Meteor','MQ_5B_Hunter','MQ_8_Fire_Scout','RQ_2_Pioneer',
             'RQ_4B_Global_Hawk','RQ_7B_Shadow','RQ_170_Sentinel','RQ_11B_Raven','ScanEagle',
             'Scout','SHMEL_1_YAK_061','C_101','Taifun','Sukhoi_S_70_Okhotnik_B','Tengden_TB_001',
-            'Wing_Loong_2','BZK_005','CH_5','nEUROn','Qods_Mohajer_6','Xianglong','MQ_9_Reaper','MQ_1_Predator']
+            'Wing_Loong_2','BZK_005','CH_5','nEUROn','Qods_Mohajer_6','Xianglong','MQ_9_Reaper','MQ_1_Predator',
+            'Tu_160M_Blackjack', 'Sukhoi_SU_57', 'F_15C_Eagle', 'L_39_Albatros', 'Tupolev_Tu_22m',
+            'Yakovlev_Yak_130', 'Shenyang_J_31', 'Shenyang_J_15', 'Xian_H_20', 'Xian_H_6',
+            'Xian_JH_7', 'Hongdu_JL_15', 'BAE_System_Hawk', 'Dassault_Rafale', 'F_22_Raptor',
+            'Chengdu_J_10', 'T_38B_Talon', 'Sukhoi_SU_34', 'F_35_Lightning_II', 'Boeing_C_17_Globemaster_III', 
+            'V_22_Osprey', 'Northrop_Grumman_B_2_Spirit', 'Xian_Y_20', 'Shaanxi_Y_9', 'Eurofighter_Typhoon', 
+            'Chengdu_J_20', 'Mikoyan_MiG_31', 'Boeing_EA_18G_Growler', 'F_16_Fighting_Falcon', 'Rockwell_B_1_Lancer',
+            'Alenia_C_27J_Spartan', 'Shaanxi_KJ_500', 'Airbus_A400M_Atlas', 'Boeing_E_3_Sentry', 'Beriev_A_50', 
+            'Boeing_737_AEWC', 'DRDO_AEWCS', 'Boeing_P_8_Poseidon', 'Saab_340_AEWC', 'Sukhoi_SU_35']
 
     check = []
     for d in range(len(data)):
